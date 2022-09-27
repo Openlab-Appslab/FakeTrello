@@ -1,0 +1,116 @@
+.mat_toolbar{
+    background-color: #022449;
+    color: white;
+    height: calc(10vh - 25px);
+}
+
+.mat_sidenav_container{
+    height: calc(100vh - 65px);
+}
+
+.content{
+    margin: auto;
+}
+
+.main_toolbar_buttons{
+    margin-right: 3.5rem;
+}
+
+.options_button{
+    background-color: #022449;
+    color: white;
+    border-style: none;
+}
+
+.options_button:hover{
+    color: #B23850;
+}
+
+.options_heading:hover{
+    background-size: 100% 100%;
+    background-position-x: left;
+}
+
+.mat_options_icon{
+    float: right;
+    margin-top: 0.25rem;
+}
+
+.wrapper{
+    display: flex;
+}
+
+.mat_sidenav{
+    min-width: 300px;
+    border-right: none;
+    background-color: #022449;
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.menu_button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    margin-top: 4px;
+    color: #B23850;
+    background-color: white;
+    font-weight: normal;
+}
+
+.menu_button:hover{
+    background-color: #B23850;
+    color: white;
+}
+
+mat-icon{
+    margin-right: 16px;    
+}
+
+.sidebar_open_close_button{
+    background-color: #022449;;
+    color: white;
+}
+
+.main_heading{
+    color: white;
+    background-image: linear-gradient(
+        transparent 0%,
+        transparent 90%,
+        white 90%,
+        white 100%
+    );
+
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+
+    transition: background-size 300ms;
+    cursor: pointer;
+}
+
+.main_heading:hover{
+    background-size: 100% 100%;
+    background-position-x: left;
+}
+
+.divider{
+    background-color: #B23850;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.mat_icon_dropdown{
+    color: #B23850;
+}
+
+/*
+#022998 tmava
+#F27D92 oranzova
+#55BDCA silno modra
+#96FFFF slabo modra
+#C8EFF9 siva/seda
+*/

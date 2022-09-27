@@ -1,3 +1,134 @@
-<p>
-  The magic of silence is that you can hear everything.
-</p>
+<router-outlet></router-outlet>
+<mat-toolbar class="mat_toolbar">
+      
+        <button 
+            class="sidebar_open_close_button"
+            mat-icon-button
+            (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+
+        <h1 
+            class="main_heading"
+            routerLink="main_dashboard">
+            FakeTrello.hu
+        </h1>       
+
+    <div class="main_toolbar_buttons" style="position:absolute;right:40px;">
+        <a  class="options_button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+            <!-- <div class="wrapper">
+                <h3 class="options_heading">Možnosti</h3>
+                <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
+            </div> -->
+        </a>
+
+            <mat-menu #menu="matMenu">
+                
+                <button 
+                    mat-menu-item
+                    routerLink="addListing">
+                        <mat-icon class="mat_icon_dropdown">exposure_plus_1</mat-icon>
+                           <span>Pridať inzerát</span>
+                </button>
+                <button 
+                    mat-menu-item
+                    routerLink="myListings">
+                        <mat-icon class="mat_icon_dropdown">pageview</mat-icon>
+                           <span>Vaše inzeráty</span>
+                </button>
+
+                <button 
+                    mat-menu-item
+                    routerLink="profile">
+                        <mat-icon class="mat_icon_dropdown">account_box</mat-icon>
+                            <span>Váš Profil</span>
+                </button>
+                <button 
+                    mat-menu-item
+                    routerLink="loginRegister"> 
+                        <mat-icon class="mat_icon_dropdown">login</mat-icon>
+                            <span>Prihlásiť sa</span>
+                </button>
+
+                <button 
+                    mat-menu-item
+                    routerLink="settings">
+                        <mat-icon class="mat_icon_dropdown">settings</mat-icon>
+                           <span>Nastavenia</span>
+                </button>
+
+            </mat-menu>
+    </div>
+
+</mat-toolbar>
+
+<mat-sidenav-container 
+    class="mat_sidenav_container">
+
+    <mat-sidenav 
+        class="mat_sidenav"
+        #sidenav = 'matSidenav'>
+
+        <button 
+            mat-button class="menu_button"
+            routerLink = "main_dashboard">
+
+            <mat-icon>toc</mat-icon>
+            <span>Hlavné menu</span>
+        </button>
+
+        <mat-divider class="divider"></mat-divider>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>directions_car</mat-icon>
+            <span>Auto</span>
+        </button>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>bike_scooter</mat-icon>
+            <span>Motorky</span>
+        </button>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>accessibility_new</mat-icon>
+            <span>Oblečenie a obuv</span>
+        </button>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>location_city</mat-icon>
+            <span>Reality</span>
+        </button>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>kitchen</mat-icon>
+            <span>Elektro</span>
+        </button>
+
+        <button 
+            mat-button class="menu_button">
+
+            <mat-icon>devices</mat-icon>
+            <span>PC</span>
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+            <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
