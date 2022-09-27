@@ -38,6 +38,9 @@
 
 .wrapper{
     display: flex;
+    flex-direction: row;
+    display: inline-flex;
+    float: left;
 }
 
 .mat_sidenav{
