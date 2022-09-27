@@ -24,7 +24,7 @@
 }
 
 .options_button:hover{
-    color: #B23850;
+    color: #e99a4f;
 }
 
 .options_heading:hover{
@@ -58,13 +58,13 @@
     justify-content: flex-start;
     font-size: 1rem;
     margin-top: 4px;
-    color: #B23850;
+    color: #e99a4f;
     background-color: white;
     font-weight: normal;
 }
 
 .menu_button:hover{
-    background-color: #B23850;
+    background-color: #e99a4f;
     color: white;
 }
 
@@ -100,13 +100,13 @@ mat-icon{
 }
 
 .divider{
-    background-color: #B23850;
+    background-color: #e99a4f;
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
 .mat_icon_dropdown{
-    color: #B23850;
+    color: #e99a4f;
 }
 
 /*
