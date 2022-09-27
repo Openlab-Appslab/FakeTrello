@@ -20,6 +20,7 @@
     background-color: #022449;
     color: white;
     border-style: none;
+    ;
 }
 
 .options_button:hover{
@@ -38,9 +39,7 @@
 
 .wrapper{
     display: flex;
-    flex-direction: row;
-    display: inline-flex;
-    float: left;
+    justify-content: flex-start;
 }
 
 .mat_sidenav{
