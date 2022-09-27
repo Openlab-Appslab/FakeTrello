@@ -26,6 +26,7 @@
                 <h3 class="options_heading">Možnosti</h3>
                 <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
             </div>
+            
         </a>              
             <mat-menu #menu="matMenu">
                 
@@ -33,13 +34,13 @@
                     mat-menu-item
                     routerLink="addListing">
                         <mat-icon class="mat_icon_dropdown">exposure_plus_1</mat-icon>
-                           <span>Pridať inzerát</span>
+                           <span routerLink="login">Pridať inzerát</span>
                 </button>
                 <button 
                     mat-menu-item
                     routerLink="myListings">
                         <mat-icon class="mat_icon_dropdown">pageview</mat-icon>
-                           <span>Vaše inzeráty</span>
+                           <span routerLink="register">Vaše inzeráty</span>
                 </button>
 
                 <button 

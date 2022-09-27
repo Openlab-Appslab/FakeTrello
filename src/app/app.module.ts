@@ -21,12 +21,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
