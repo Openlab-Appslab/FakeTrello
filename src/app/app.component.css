@@ -68,6 +68,11 @@
     } */
 }
 
+.features_heading{
+    padding-left: calc(15vh - 25px);
+}
+
+
 
 .mat_sidenav{
     min-width: 300px;
@@ -138,7 +143,8 @@ mat-icon{
 
 
 .log_button{
-    padding: 10px;
+    padding: calc(10vh - 25px);
+    padding-top: auto;
     padding-left: 30px;
     padding-right: 30px;
     text-align: center;
@@ -149,7 +155,8 @@ mat-icon{
 }
 
 .reg_button{
-    padding: 10px;
+    padding: calc(10vh - 25px);
+    padding-top: auto;
     padding-left: 40px;
     padding-right: 40px;
     text-decoration: none;

@@ -19,11 +19,73 @@
             FakeTrello.hu
         </h1>       
 
+
+
+        <div class="main_toolbar_buttons" style="position:absolute; margin-left: 200px; margin-top: .5rem;">
+            <a  class="options_button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    
+                <div class="wrapper">
+                    <h3 class="features_heading">Features</h3>
+                    <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
+                </div>
+    
+    
+                
+            </a>              
+                <mat-menu #menu="matMenu">
+                    
+                    <button 
+                        mat-menu-item
+                        routerLink="addListing">
+                            <mat-icon class="mat_icon_dropdown">code</mat-icon>
+                               <span routerLink="login">Recources</span>
+                    </button>
+                    <button 
+                        mat-menu-item
+                        routerLink="myListings">
+                            <mat-icon class="mat_icon_dropdown">backup</mat-icon>
+                               <span routerLink="register">GitHub Repo</span>
+                    </button>
+    
+                    <button 
+                        mat-menu-item
+                        routerLink="profile">
+                            <mat-icon class="mat_icon_dropdown">people</mat-icon>
+                                <span>Our Team</span>
+                    </button>
+                    <!-- <button 
+                        mat-menu-item
+                        routerLink="loginRegister"> 
+                            <mat-icon class="mat_icon_dropdown">login</mat-icon>
+                                <span>Prihlásiť sa</span>
+                    </button>
+    
+                    <button 
+                        mat-menu-item
+                        routerLink="settings">
+                            <mat-icon class="mat_icon_dropdown">settings</mat-icon>
+                               <span>Nastavenia</span>
+                    </button> -->
+    
+    
+    
+                </mat-menu>
+    <!-- 
+                <a class="login_button" mat-icon-button aria-label="Example icon-button with a menu"></a>
+                <mat-icon class="mat_search_icon">search</mat-icon> -->
+            
+        </div>
+
+
+
+
+
+
     <div class="main_toolbar_buttons" style="position:absolute; margin-left: 200px; margin-top: .5rem;">
         <a  class="options_button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
 
             <div class="wrapper">
-                <h3 class="options_heading">Možnosti</h3>
+                <h3 class="options_heading">About</h3>
                 <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
             </div>
 
@@ -35,23 +97,23 @@
                 <button 
                     mat-menu-item
                     routerLink="addListing">
-                        <mat-icon class="mat_icon_dropdown">exposure_plus_1</mat-icon>
-                           <span routerLink="login">Pridať inzerát</span>
+                        <mat-icon class="mat_icon_dropdown">code</mat-icon>
+                           <span routerLink="login">Recources</span>
                 </button>
                 <button 
                     mat-menu-item
                     routerLink="myListings">
-                        <mat-icon class="mat_icon_dropdown">pageview</mat-icon>
-                           <span routerLink="register">Vaše inzeráty</span>
+                        <mat-icon class="mat_icon_dropdown">backup</mat-icon>
+                           <span routerLink="register">GitHub Repo</span>
                 </button>
 
                 <button 
                     mat-menu-item
                     routerLink="profile">
-                        <mat-icon class="mat_icon_dropdown">account_box</mat-icon>
-                            <span>Váš Profil</span>
+                        <mat-icon class="mat_icon_dropdown">people</mat-icon>
+                            <span>Our Team</span>
                 </button>
-                <button 
+                <!-- <button 
                     mat-menu-item
                     routerLink="loginRegister"> 
                         <mat-icon class="mat_icon_dropdown">login</mat-icon>
@@ -63,7 +125,7 @@
                     routerLink="settings">
                         <mat-icon class="mat_icon_dropdown">settings</mat-icon>
                            <span>Nastavenia</span>
-                </button>
+                </button> -->
 
 
 
@@ -73,6 +135,9 @@
             <mat-icon class="mat_search_icon">search</mat-icon> -->
         
     </div>
+
+
+    
 
     <a routerLink="login" class="log_button">Log in</a>
     <a routerLink="register" class="reg_button">Register</a>
@@ -93,7 +158,7 @@
             routerLink = "main_dashboard">
 
             <mat-icon>toc</mat-icon>
-            <span>Hlavné menu</span>
+            <span>Main Page</span>
         </button>
 
         <mat-divider class="divider"></mat-divider>
