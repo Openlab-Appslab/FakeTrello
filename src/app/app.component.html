@@ -19,92 +19,28 @@
             FakeTrello.hu
         </h1>       
 
-
-
         <div class="main_toolbar_buttons" style="position:absolute; margin-left: 200px; margin-top: .5rem;">
-            <a  class="options_button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <a  class="options_button" mat-icon-button [matMenuTriggerFor]="featuresMenu" aria-label="Example icon-button with a menu">
     
                 <div class="wrapper">
                     <h3 class="features_heading">Features</h3>
                     <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
                 </div>
-    
-    
-                
+        
             </a>              
-                <mat-menu #menu="matMenu">
-                    
-                    <button 
-                        mat-menu-item
-                        routerLink="addListing">
-                            <mat-icon class="mat_icon_dropdown">code</mat-icon>
-                               <span routerLink="login">Recources</span>
-                    </button>
-                    <button 
-                        mat-menu-item
-                        routerLink="myListings">
-                            <mat-icon class="mat_icon_dropdown">backup</mat-icon>
-                               <span routerLink="register">GitHub Repo</span>
-                    </button>
-    
-                    <button 
-                        mat-menu-item
-                        routerLink="profile">
-                            <mat-icon class="mat_icon_dropdown">people</mat-icon>
-                                <span>Our Team</span>
-                    </button>
-                    <!-- <button 
-                        mat-menu-item
-                        routerLink="loginRegister"> 
-                            <mat-icon class="mat_icon_dropdown">login</mat-icon>
-                                <span>Prihlásiť sa</span>
-                    </button>
-    
-                    <button 
-                        mat-menu-item
-                        routerLink="settings">
-                            <mat-icon class="mat_icon_dropdown">settings</mat-icon>
-                               <span>Nastavenia</span>
-                    </button> -->
-    
-    
-    
-                </mat-menu>
-    <!-- 
-                <a class="login_button" mat-icon-button aria-label="Example icon-button with a menu"></a>
-                <mat-icon class="mat_search_icon">search</mat-icon> -->
-            
-        </div>
-
-
-
-
-
-
-    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 200px; margin-top: .5rem;">
-        <a  class="options_button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-
-            <div class="wrapper">
-                <h3 class="options_heading">About</h3>
-                <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
-            </div>
-
-
-            
-        </a>              
-            <mat-menu #menu="matMenu">
+            <mat-menu #featuresMenu="matMenu">
                 
                 <button 
                     mat-menu-item
                     routerLink="addListing">
                         <mat-icon class="mat_icon_dropdown">code</mat-icon>
-                           <span routerLink="login">Recources</span>
+                            <span routerLink="login">Recources</span>
                 </button>
                 <button 
                     mat-menu-item
                     routerLink="myListings">
                         <mat-icon class="mat_icon_dropdown">backup</mat-icon>
-                           <span routerLink="register">GitHub Repo</span>
+                            <span routerLink="register">GitHub Repo</span>
                 </button>
 
                 <button 
@@ -113,38 +49,44 @@
                         <mat-icon class="mat_icon_dropdown">people</mat-icon>
                             <span>Our Team</span>
                 </button>
-                <!-- <button 
-                    mat-menu-item
-                    routerLink="loginRegister"> 
-                        <mat-icon class="mat_icon_dropdown">login</mat-icon>
-                            <span>Prihlásiť sa</span>
-                </button>
-
-                <button 
-                    mat-menu-item
-                    routerLink="settings">
-                        <mat-icon class="mat_icon_dropdown">settings</mat-icon>
-                           <span>Nastavenia</span>
-                </button> -->
-
-
-
             </mat-menu>
-<!-- 
-            <a class="login_button" mat-icon-button aria-label="Example icon-button with a menu"></a>
-            <mat-icon class="mat_search_icon">search</mat-icon> -->
-        
+        </div>
+
+    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 200px; margin-top: .5rem;">
+        <a  class="options_button" mat-icon-button [matMenuTriggerFor]="aboutMenu" aria-label="Example icon-button with a menu">
+
+            <div class="wrapper">
+                <h3 class="options_heading">About</h3>
+                <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
+            </div>
+  
+        </a>              
+        <mat-menu #aboutMenu="matMenu">
+            
+            <button 
+                mat-menu-item
+                routerLink="addListing">
+                    <mat-icon class="mat_icon_dropdown">code</mat-icon>
+                        <span routerLink="login">Recources</span>
+            </button>
+            <button 
+                mat-menu-item
+                routerLink="myListings">
+                    <mat-icon class="mat_icon_dropdown">backup</mat-icon>
+                        <span routerLink="register">GitHub Repo</span>
+            </button>
+
+            <button 
+                mat-menu-item
+                routerLink="profile">
+                    <mat-icon class="mat_icon_dropdown">people</mat-icon>
+                        <span>Our Team</span>
+            </button>
+        </mat-menu>
     </div>
-
-
-    
-
     <a routerLink="login" class="log_button">Log in</a>
     <a routerLink="register" class="reg_button">Register</a>
-
 </mat-toolbar>
-
-
 
 <mat-sidenav-container 
     class="mat_sidenav_container">
