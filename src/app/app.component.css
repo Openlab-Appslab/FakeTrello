@@ -8,6 +8,11 @@
     height: calc(100vh - 65px);
 }
 
+.mat-toolbar-row, .mat-toolbar-single-row{
+    padding: 0;
+    padding-left: 10px;
+}
+
 .content{
     margin: auto;
 }
@@ -20,7 +25,6 @@
     background-color: #022449;
     color: white;
     border-style: none;
-    ;
 }
 
 .options_button:hover{
@@ -41,6 +45,29 @@
     display: flex;
     justify-content: flex-start;
 }
+
+@media only screen and (max-width: 600px) {
+    .login_button{
+        display: none;
+    }
+
+    .wrapper{
+        display: none;
+    }
+
+    .main_toolbar_buttons{
+        display: none;
+    }
+
+    .reg_button{
+        display: none;
+    }
+
+    /* .log_button{
+        display: none;
+    } */
+}
+
 
 .mat_sidenav{
     min-width: 300px;
@@ -107,6 +134,28 @@ mat-icon{
 
 .mat_icon_dropdown{
     color: #e99a4f;
+}
+
+
+.log_button{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    margin-left: auto;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+}
+
+.reg_button{
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-decoration: none;
+    background-color: #e99a4f;
+    color: white;
+    
 }
 
 /*

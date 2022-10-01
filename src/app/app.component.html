@@ -26,6 +26,8 @@
                 <h3 class="options_heading">Možnosti</h3>
                 <mat-icon class="mat_options_icon">keyboard_arrow_down</mat-icon>
             </div>
+
+
             
         </a>              
             <mat-menu #menu="matMenu">
@@ -63,11 +65,21 @@
                            <span>Nastavenia</span>
                 </button>
 
-            </mat-menu>
 
+
+            </mat-menu>
+<!-- 
+            <a class="login_button" mat-icon-button aria-label="Example icon-button with a menu"></a>
+            <mat-icon class="mat_search_icon">search</mat-icon> -->
+        
     </div>
 
+    <a routerLink="login" class="log_button">Log in</a>
+    <a routerLink="register" class="reg_button">Register</a>
+
 </mat-toolbar>
+
+
 
 <mat-sidenav-container 
     class="mat_sidenav_container">
