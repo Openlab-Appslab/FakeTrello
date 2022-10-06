@@ -1,17 +1,16 @@
 <router-outlet></router-outlet>
 <mat-toolbar class="mat_toolbar">
-      
-        <button 
-            class="sidebar_open_close_button"
-            mat-icon-button
-            (click)="sidenav.toggle()">
-            <mat-icon *ngIf="!sidenav.opened">
-                menu
-            </mat-icon>
-            <mat-icon *ngIf="sidenav.opened">
-                close
-            </mat-icon>
-        </button>
+
+        <div class="burger_wrapper" *ngIf="element == false">  
+             <button class="sidebar_open_close_button" mat-icon-button (click)="sidenav.toggle()">
+                    <mat-icon *ngIf="!sidenav.opened">
+                        menu
+                    </mat-icon>
+                    <mat-icon *ngIf="sidenav.opened">
+                        close
+                    </mat-icon>
+            </button>
+        </div>
 
         <h1 
             class="main_heading"

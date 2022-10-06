@@ -23,6 +23,9 @@ import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { BoardsComponent } from './sidenav_components/boards/boards.component';
+import { HighlightsComponent } from './sidenav_components/highlights/highlights.component';
+import { SettingsComponent } from './sidenav_components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { MainComponent } from './main/main.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    BoardsComponent,
+    HighlightsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
