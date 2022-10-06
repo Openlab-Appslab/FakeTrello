@@ -162,7 +162,18 @@ mat-icon{
     text-decoration: none;
     background-color: #e99a4f;
     color: white;
-    
+}
+
+.log_out_button{
+    background-color: #e99a4f;
+    padding: calc(10vh - 25px);
+    padding-top: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    margin-left: auto;
+    color: white;
+    text-decoration: none;
 }
 
 /*

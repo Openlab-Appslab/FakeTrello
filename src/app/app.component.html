@@ -84,8 +84,11 @@
             </button>
         </mat-menu>
     </div>
-    <a routerLink="login" class="log_button">Log in</a>
-    <a routerLink="register" class="reg_button">Register</a>
+    
+        <a *ngIf="element == true" routerLink="login" class="log_button">Log in</a>
+        <a *ngIf="element == true" routerLink="register" class="reg_button">Register</a>
+        <a *ngIf="element == false" routerLink="basicRoute" class="log_out_button">Log Out</a>
+
 </mat-toolbar>
 
 <mat-sidenav-container 

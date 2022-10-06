@@ -9,4 +9,6 @@ import { LoginComponent } from './security/login/login.component';
 })
 export class AppComponent {
   title = 'FakeTrello';
+
+  element = false;
 }
