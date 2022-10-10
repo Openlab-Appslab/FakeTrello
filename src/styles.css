@@ -22,3 +22,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  ::selection{
+    background-color: #e99a4f;
+  }
