@@ -26,6 +26,7 @@ import { MainComponent } from './main/main.component';
 import { BoardsComponent } from './sidenav_components/boards/boards.component';
 import { HighlightsComponent } from './sidenav_components/highlights/highlights.component';
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
+import { WorkspacesComponent } from './workspaces/workspaces.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SettingsComponent } from './sidenav_components/settings/settings.compon
     MainComponent,
     BoardsComponent,
     HighlightsComponent,
-    SettingsComponent
+    SettingsComponent,
+    WorkspacesComponent
   ],
   imports: [
     BrowserModule,
