@@ -10,5 +10,8 @@ import { LoginComponent } from './security/login/login.component';
 export class AppComponent {
   title = 'FakeTrello';
 
+  firstName = "Jozko";
+  lastName = "Tehla"
+
   element = false;
 }

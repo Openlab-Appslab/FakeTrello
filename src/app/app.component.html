@@ -52,7 +52,7 @@
         </mat-menu>
     </div>
 
-    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 300px; margin-top: .5rem;">
+    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 300px; margin-top: .5rem;" *ngIf="element == true">
         <a  class="options_button" mat-icon-button [matMenuTriggerFor]="featuresMenu" aria-label="Example icon-button with a menu">
 
             <div class="wrapper">
@@ -105,9 +105,14 @@
         class="mat_sidenav"
         #sidenav = 'matSidenav'>
 
+        <img class="avatar" src="../assets/user.png" width="125px">
+        <h4 class="name">{{ firstName }} {{ lastName }}</h4>
+
+        <mat-divider class="divider"></mat-divider>
+
         <button 
             mat-button class="menu_button"
-            routerLink = "main_dashboard">
+            routerLink = "basicRoute">
 
             <mat-icon>toc</mat-icon>
             <span>Main Page</span>
@@ -116,46 +121,45 @@
         <mat-divider class="divider"></mat-divider>
 
         <button 
-            mat-button class="menu_button">
+            mat-button class="menu_button"
+            routerLink="workspace">
 
             <mat-icon>work</mat-icon>
             <span>Workspaces</span>
         </button>
 
         <button 
-            mat-button class="menu_button">
+            mat-button class="menu_button"
+            routerLink="boards">
 
             <mat-icon>developer_board</mat-icon>
             <span>Boards</span>
         </button>
 
         <button 
-            mat-button class="menu_button">
+            mat-button class="menu_button"
+            routerLink="members">
 
             <mat-icon>people</mat-icon>
             <span>Members</span>
         </button>
 
-        <!-- <button 
-            mat-button class="menu_button">
+        <button 
+            mat-button class="menu_button"
+            routerLink="highlights">
 
-            <mat-icon>location_city</mat-icon>
-            <span>Reality</span>
+            <mat-icon>favorite_border</mat-icon>
+            <span>Highlights</span>
         </button>
 
         <button 
-            mat-button class="menu_button">
+            mat-button class="menu_button"
+            routerLink="settings">
 
-            <mat-icon>kitchen</mat-icon>
-            <span>Elektro</span>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
         </button>
 
-        <button 
-            mat-button class="menu_button">
-
-            <mat-icon>devices</mat-icon>
-            <span>PC</span>
-        </button> -->
     </mat-sidenav>
 
     <mat-sidenav-content class="content">

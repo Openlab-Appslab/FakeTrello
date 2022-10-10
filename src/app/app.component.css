@@ -17,6 +17,15 @@
     margin: auto;
 }
 
+.avatar{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.name{
+    font-size: larger;
+}
+
 .main_toolbar_buttons{
     margin-right: 3.5rem;
 }
@@ -28,7 +37,8 @@
 }
 
 .options_button:hover{
-    color: #e99a4f;
+    color: #F27D92;
+    /* color: #e99a4f; */
 }
 
 .options_heading:hover{
@@ -62,17 +72,11 @@
     .reg_button{
         display: none;
     }
-
-    /* .log_button{
-        display: none;
-    } */
 }
 
 .features_heading{
     
 }
-
-
 
 .mat_sidenav{
     min-width: 300px;
@@ -90,13 +94,13 @@
     justify-content: flex-start;
     font-size: 1rem;
     margin-top: 4px;
-    color: #e99a4f;
+    color: #F27D92;
     background-color: white;
     font-weight: normal;
 }
 
 .menu_button:hover{
-    background-color: #e99a4f;
+    background-color: #F27D92;
     color: white;
 }
 
@@ -132,13 +136,13 @@ mat-icon{
 }
 
 .divider{
-    background-color: #e99a4f;
+    background-color: #F27D92;
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
 .mat_icon_dropdown{
-    color: #e99a4f;
+    color: #F27D92;
 }
 
 
@@ -160,12 +164,12 @@ mat-icon{
     padding-left: 40px;
     padding-right: 40px;
     text-decoration: none;
-    background-color: #e99a4f;
+    background-color: #F27D92;
     color: white;
 }
 
 .log_out_button{
-    background-color: #e99a4f;
+    background-color: #F27D92;
     padding: calc(10vh - 25px);
     padding-top: auto;
     padding-left: 30px;
@@ -178,7 +182,7 @@ mat-icon{
 
 /*
 #022998 tmava
-#F27D92 oranzova
+#F27D92 ruzova
 #55BDCA silno modra
 #96FFFF slabo modra
 #C8EFF9 siva/seda
