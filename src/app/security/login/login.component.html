@@ -9,7 +9,7 @@
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
   
-                  <form class="mx-1 mx-md-4" [formGroup]="loginGroup">
+                  <form class="mx-1 mx-md-4" [formGroup]="loginGroup" (ngSubmit)="login()">
   
                     <!-- INPUTS -->
 
@@ -36,7 +36,7 @@
                     <!-- BUTTON -->
                     
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg" (click)="test()">Login</button>
+                      <button type="button" class="btn btn-primary btn-lg" (click)="test()" [disabled]="!loginGroup.valid">Login</button>
                     </div>
   
                   </form>

@@ -52,7 +52,7 @@
         </mat-menu>
     </div>
 
-    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 300px; margin-top: .5rem;" *ngIf="element == true">
+    <div class="main_toolbar_buttons" style="position:absolute; margin-left: 300px; margin-top: .5rem;">
         <a  class="options_button" mat-icon-button [matMenuTriggerFor]="featuresMenu" aria-label="Example icon-button with a menu">
 
             <div class="wrapper">
@@ -92,9 +92,9 @@
         </mat-menu>
     </div>
     
-        <a *ngIf="element == true" routerLink="login" class="log_button">Log in</a>
-        <a *ngIf="element == true" routerLink="register" class="reg_button">Register</a>
-        <a *ngIf="element == false" routerLink="basicRoute" class="log_out_button">Log Out</a>
+        <a *ngIf="element == false" routerLink="login" class="log_button">Log in</a>
+        <a *ngIf="element == false" routerLink="register" class="reg_button">Register</a>
+        <a *ngIf="element == true" routerLink="basicRoute" class="log_out_button">Log Out</a>
 
 </mat-toolbar>
 
