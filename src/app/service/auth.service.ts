@@ -16,4 +16,8 @@ export class AuthService {
   loginUser(email: string, password: string) {
     return this.http.post<any>(this._loginUrl, email+password);
   }
+
+  registerUser(email: string, password: string) {
+    return this.http.post<any>(this._registerUrl, email+password);
+  }
 }
