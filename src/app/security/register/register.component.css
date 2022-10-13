@@ -1,3 +1,8 @@
 html{
     height: 100vh;
 }
+
+input:focus{
+    border:  1px solid #F27D92;
+    box-shadow: #F27D92 0px 0px 5px;
+}
