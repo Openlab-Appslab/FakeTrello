@@ -28,6 +28,7 @@ import { HighlightsComponent } from './sidenav_components/highlights/highlights.
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
 import { WorkspaceComponent } from './sidenav_components/workspace/workspace.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MembersComponent } from './sidenav_components/members/members.component
     MatSelectModule,
     MatSelectModule,
     MatSliderModule,
+    HttpClientModule,
     
   ],
   providers: [],
