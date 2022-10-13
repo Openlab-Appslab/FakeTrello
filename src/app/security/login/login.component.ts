@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
     console.log(email, password);
     this._auth.loginUser(email, password)
+    .subscribe(() => this.router.navigateByUrl('/workspace'));
   }
 
   ngOnInit(): void {
