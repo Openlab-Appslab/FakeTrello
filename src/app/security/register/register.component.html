@@ -29,8 +29,11 @@
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" formControlName="repeatPassword" required/>
+                      <input type="password" id="form3Example4c" class="form-control" formControlName="confirmPassword" required/>
                       <label class="form-label" for="form3Example4c">Repeat Password</label>
+                      <!-- <p *ngIf="passwordMatchError()">
+                        Password does not match
+                      </p> -->
                     </div>
                   </div>
 

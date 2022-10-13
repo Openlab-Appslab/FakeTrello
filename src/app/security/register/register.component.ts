@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -40,5 +40,34 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
+//   profileForm = new FormGroup(
+//     {
+//       password: new FormControl('', [Validators.required]),
+//       confirmPassword: new FormControl('', [Validators.required]),
+//     },
+//     [CustomValidators.MatchValidator('password', 'confirmPassword')]
+//   );
+
+//   get passwordMatchError() {
+//     return (
+//       console.log("passwordMatchError"),
+//       this.profileForm.getError('mismatch') &&
+//       this.profileForm.get('confirmPassword')?.touched
+//     );
+//   }
+
+// }
+
+// export class CustomValidators {
+//   static MatchValidator(source: string, target: string): ValidatorFn {
+//     return (control: AbstractControl): ValidationErrors | null => {
+//       const sourceCtrl = control.get(source);
+//       const targetCtrl = control.get(target);
+
+//       return sourceCtrl && targetCtrl && sourceCtrl.value !== targetCtrl.value
+//         ? { mismatch: true }
+//         : null;
+//     };
+//   }
+
