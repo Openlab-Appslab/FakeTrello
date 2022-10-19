@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
     const password = this.loginGroup.value.password;
 
     console.log(email, password);
-    this._auth.loginUser(email, password)
+    
+    this._auth.loginUser(email, password) 
     .subscribe(() => this.router.navigateByUrl('/workspace'));
   }
 

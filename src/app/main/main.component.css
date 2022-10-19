@@ -6,7 +6,7 @@ COLOR SETUP
     --primary: #3155e7;
     --primary-dark: #2045d6; 
     --black: #010101;
-    --gray-1: #788190;
+    --gray-1: #55BDCA;
     --gray-2: #d3d4db;
     --white: #ffffff;
     --body: #fefefe;
@@ -75,14 +75,16 @@ BUTTON
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: #022998;
+    border-color: transparent;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
 }
 
-.btn-outline-secondary {
+/* .btn-outline-secondary {
     border: 1px solid var(--gray-2);
     color: var(--black);
 }
@@ -97,7 +99,7 @@ BUTTON
     background-color: var(--gray-2);
     border: 1px solid var(--gray-2);
     color: var(--black);
-}
+} */
 
 /*
 NAVBAR
