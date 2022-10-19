@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
     console.log(email, password);
   }
 
-  loginUser() {
+  login() {
     const email = this.loginGroup.value.email;
     const password = this.loginGroup.value.password;
 
     console.log(email, password);
-    
-    this._auth.loginUser(email, password) 
+
+    this._auth.login(email, password) 
     .subscribe(() => this.router.navigateByUrl('/workspace'));
   }
 

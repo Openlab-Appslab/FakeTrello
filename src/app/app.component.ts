@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginComponent } from './security/login/login.component';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,12 @@ import { LoginComponent } from './security/login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(
+    private readonly router: Router,
+    private _auth: AuthService,
+  ) { }
+
   title = 'FakeTrello';
 
   firstName = "Jozko";

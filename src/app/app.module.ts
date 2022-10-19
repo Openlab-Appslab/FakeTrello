@@ -29,6 +29,7 @@ import { SettingsComponent } from './sidenav_components/settings/settings.compon
 import { WorkspaceComponent } from './sidenav_components/workspace/workspace.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
