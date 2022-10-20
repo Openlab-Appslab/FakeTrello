@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private _auth: AuthService,
+    private authService: AuthService,
     private router: Router,
 
   ) { }
@@ -29,31 +29,12 @@ export class RegisterComponent implements OnInit {
     console.log(email, password, repeatPassword);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  // register() {
-  //   const email = this.registerGroup.value.email;
-  //   const password = this.registerGroup.value.password;
-
-  //   console.log(email, password);
+  ProceedRegister() {
+    console.log(this.registerGroup.value);
     
-  //   this._auth.register(email, password)  
-  //     .subscribe(() => this.router.navigateByUrl('/login'));
-  // }
+    this.authService.ProceedRegister(this.registerGroup.value)  
+      .subscribe(() => this.router.navigateByUrl('/login'));
+  }
 
 
 

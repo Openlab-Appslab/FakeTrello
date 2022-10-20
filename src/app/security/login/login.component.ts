@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     console.log(email, password);
   }
 
-  ProceedLogin() {
+  Proceedogin() {
     if(this.loginGroup.valid){
       this.authService.proceedLogin(this.loginGroup.value)
         .subscribe(result=>{
@@ -41,32 +41,6 @@ export class LoginComponent implements OnInit {
       })
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // login() {
-  //   const email = this.loginGroup.value.email;
-  //   const password = this.loginGroup.value.password;
-
-  //   console.log(email, password);
-
-  //   this._auth.login(email, password) 
-  //   .subscribe(() => this.router.navigateByUrl('/workspace'));
-  // }
 
   ngOnInit(): void {
   }

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   loginUrl = 'http://localhost:8080/XXXX';
+  registerUrl = 'http://localhost:8080/XXXX';
 
   constructor(
     private readonly http: HttpClient,
@@ -24,6 +25,10 @@ export class AuthService {
 
     proceedLogin(usercred: any){
       return this.http.post(this.loginUrl,usercred);
+    }
+
+    ProceedRegister(usercred: any){
+      return this.http.post(this.registerUrl,usercred);
     }
 
     isLoggedIn(){
@@ -48,5 +53,6 @@ export class AuthService {
     }
 
     //https://www.youtube.com/watch?v=Kfzcs-d9R7k&t=29s&ab_channel=NihiraTechiees for any more questions
+    //https://www.youtube.com/watch?v=Q8s0CYhnHgM&ab_channel=NihiraTechiees passing authorization header
 
 }
