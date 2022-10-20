@@ -29,15 +29,31 @@ export class RegisterComponent implements OnInit {
     console.log(email, password, repeatPassword);
   }
 
-  register() {
-    const email = this.registerGroup.value.email;
-    const password = this.registerGroup.value.password;
 
-    console.log(email, password);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  // register() {
+  //   const email = this.registerGroup.value.email;
+  //   const password = this.registerGroup.value.password;
+
+  //   console.log(email, password);
     
-    this._auth.register(email, password)  
-      .subscribe(() => this.router.navigateByUrl('/login'));
-  }
+  //   this._auth.register(email, password)  
+  //     .subscribe(() => this.router.navigateByUrl('/login'));
+  // }
 
 
 

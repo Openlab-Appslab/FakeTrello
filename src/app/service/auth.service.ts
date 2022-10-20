@@ -4,14 +4,16 @@ import { Observable, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+// const httpOptions = {
+//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+// };
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  loginUrl = 'http://localhost:8080/XXXX';
 
   constructor(
     private readonly http: HttpClient,
@@ -20,62 +22,31 @@ export class AuthService {
     
   ) { }
 
-  token: string ='';
+    proceedLogin(usercred: any){
+      return this.http.post(this.loginUrl,usercred);
+    }
 
-  getToken(): string {
-    return this.token;
-  }
+    isLoggedIn(){
+      return localStorage.getItem('token') != null;
+    }
 
-  isLoggedIn(): boolean {
-    return !!this.token;
-  }
+    GetToken(){
+      return localStorage.getItem('token') || '';
+    }
 
-  login(email: string, password: string): Observable<any> {
-    const info = btoa(`${email}:${password}`);
+    HaveAccess(){
+      var logInToken=localStorage.getItem('token') || '';
+      var _extractedToken = logInToken.split('.')[1];
+      var _atobdata = atob(_extractedToken);
+      var _finalData = JSON.parse(_atobdata);
+      console.log(_finalData);
+      if(_finalData.role == 'admin'){
+        return true;
+      }
+      alert('You are not authorized to access this page');
+      return false;
+    }
 
-    this.cookies.set('email', email);
-    this.cookies.set('password', password);
+    //https://www.youtube.com/watch?v=Kfzcs-d9R7k&t=29s&ab_channel=NihiraTechiees for any more questions
 
-    const token = `Basic ${info}`;
-    const options = {
-      headers: new HttpHeaders({
-        Authorization: token,
-        'X-Requested-With' : 'XMLHttpRequest'
-      }),
-      withCredentials: true
-    };
-    return this.http.get<any>('http://localhost:8080/showBSI', options).pipe(
-      tap(() => this.token = token),
-    );    
-  }
-
-  register(email: string, password: string): Observable<any> {
-      return this.http.post('http://localhost:8080/noAuth/register', {
-      email,
-      password,
-    }, httpOptions);
-  }
-
-  logout(): void {
-    this.token = '';
-  }
-
-  // private _registerUrl = "http://localhost:8080/noAuth/register";
-  // private _loginUrl = "http://localhost:8080/noAuth/login";
-
-  // loginUser(email: string, password: string) {
-  //   this.cookies.set('email', email);
-  //   this.cookies.set('password', password);
-
-  //   return this.http.post<any>(this._loginUrl, email+password);
-  // }
-
-  // registerUser(email: string, password: string) {
-  //   return this.http.post<any>(this._registerUrl, email+password);
-  // }
-
-  // logOut(){
-  //   this.cookies.deleteAll();
-  //   this.router.navigate(['/login']);
-  // }
 }

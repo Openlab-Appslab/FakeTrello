@@ -28,8 +28,9 @@ import { HighlightsComponent } from './sidenav_components/highlights/highlights.
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
 import { WorkspaceComponent } from './sidenav_components/workspace/workspace.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,10 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} //multi = can be used across multiple classes
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

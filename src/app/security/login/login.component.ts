@@ -10,9 +10,11 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  responseData: any;
+
   constructor(
     private readonly router: Router,
-    private _auth: AuthService,
+    private authService: AuthService,
 
   ) { }
 
@@ -27,15 +29,44 @@ export class LoginComponent implements OnInit {
     console.log(email, password);
   }
 
-  login() {
-    const email = this.loginGroup.value.email;
-    const password = this.loginGroup.value.password;
-
-    console.log(email, password);
-
-    this._auth.login(email, password) 
-    .subscribe(() => this.router.navigateByUrl('/workspace'));
+  ProceedLogin() {
+    if(this.loginGroup.valid){
+      this.authService.proceedLogin(this.loginGroup.value)
+        .subscribe(result=>{
+          if(result != null){
+            this.responseData = result;
+            localStorage.setItem('token', this.responseData.jwtToken);
+            this.router.navigate(['/workspace']);
+          }
+      })
+    }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // login() {
+  //   const email = this.loginGroup.value.email;
+  //   const password = this.loginGroup.value.password;
+
+  //   console.log(email, password);
+
+  //   this._auth.login(email, password) 
+  //   .subscribe(() => this.router.navigateByUrl('/workspace'));
+  // }
 
   ngOnInit(): void {
   }

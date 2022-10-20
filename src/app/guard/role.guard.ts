@@ -6,17 +6,19 @@ import { AuthService } from '../service/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class RoleGuard implements CanActivate {
+
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
-  ) { }
+    private authService: AuthService,
+    private router: Router,
+
+  ){}
 
   canActivate(){
-    if(this.authService.isLoggedIn()){
+    if(this.authService.HaveAccess()){
       return true;
     }else{
-      this.router.navigate(['/login']);
+      this.router.navigate(['/basicRoute']);
       return false;
     }
   }
