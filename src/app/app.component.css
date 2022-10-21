@@ -180,6 +180,13 @@ mat-icon{
     text-decoration: none;
 }
 
+.workspace_title{
+    margin-top: 15px;
+    color: #F27D92;
+    font-weight: 600;
+    font-size: large;
+}
+
 /*
 #022998 tmava
 #F27D92 ruzova

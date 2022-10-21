@@ -1,0 +1,46 @@
+.wrapper{
+
+}
+
+.main_heading{
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.main{
+    background-color: lightgray;
+}
+
+.second{
+    text-align: center;
+    padding: 1rem;
+}
+
+.main_img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+.info_text{
+    margin-top: 1rem;
+}
+
+.create_button{
+    padding: 1.5rem 9rem 1.5rem 9rem;
+    border-radius: 10px;
+    font-size: larger;
+    background-color: #F27D92;
+    color: white;
+    font-weight: 500;
+    border-color: white;
+    border-style: solid;
+    transition: all .5s ease;
+}
+
+.create_button:hover{
+    background-color: white;
+    color: #F27D92;
+    border-color: #F27D92;
+    
+}

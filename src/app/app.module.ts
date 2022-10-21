@@ -26,11 +26,11 @@ import { MainComponent } from './main/main.component';
 import { BoardsComponent } from './sidenav_components/boards/boards.component';
 import { HighlightsComponent } from './sidenav_components/highlights/highlights.component';
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
-import { WorkspaceComponent } from './sidenav_components/workspace/workspace.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { ToDoComponent } from './to-do/to-do.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +42,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     BoardsComponent,
     HighlightsComponent,
     SettingsComponent,
-    WorkspaceComponent,
     MembersComponent,
+    ToDoComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           if(result != null){
             this.responseData = result;
             localStorage.setItem('token', this.responseData.jwtToken);
-            this.router.navigate(['/workspace']);
+            this.router.navigate(['/boards']);
           }
       })
     }
