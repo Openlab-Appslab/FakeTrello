@@ -31,6 +31,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ToDoComponent } from './to-do/to-do.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ToDoComponent } from './to-do/to-do.component';
     MatSelectModule,
     MatSliderModule,
     HttpClientModule,
+    DragDropModule,
     
   ],
   providers: [
