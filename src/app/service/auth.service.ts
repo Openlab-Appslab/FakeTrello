@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 // const httpOptions = {
@@ -18,7 +18,7 @@ export class AuthService {
 
   constructor(
     private readonly http: HttpClient,
-    public cookies: CookieService,
+    // public cookies: CookieService,
     private router: Router,
     
   ) { }
