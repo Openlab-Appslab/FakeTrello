@@ -28,7 +28,7 @@ import { HighlightsComponent } from './sidenav_components/highlights/highlights.
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ToDoComponent } from './to-do/to-do.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -72,7 +72,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     
   ],
   providers: [
-    CookieService,
+    // CookieService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} //multi = can be used across multiple classes
   ],
   bootstrap: [AppComponent]

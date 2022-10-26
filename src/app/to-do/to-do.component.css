@@ -82,3 +82,21 @@
 .check_icon{
     color: rgb(113, 189, 0);
 }
+
+.main_div{
+    height: 93vh;
+}
+
+.matcard{
+    margin-bottom: 1.5vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .main_div
+    {
+        height: auto;
+    }
+    .example-container{
+        width: 100%;
+    }
+}
