@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "boards", component: BoardsComponent },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
-  { path: "settings", component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: "settings", component: SettingsComponent },
   { path: "members", component: MembersComponent, canActivate: [AuthGuard] },
   { path: "todo", component: ToDoComponent },
   /*we can add RoleGuard to the path to check if the user has the right role to access the page, in this case the token must have the role "admin" 
