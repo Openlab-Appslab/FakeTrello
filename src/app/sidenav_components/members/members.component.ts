@@ -12,4 +12,7 @@ export class MembersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  workspacename = "Fake Trello";
+  workspaceMembers = 1;
 }
