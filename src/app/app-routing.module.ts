@@ -17,15 +17,18 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "boards", component: BoardsComponent },
-  { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
+  { path: "highlights", component: HighlightsComponent,  },
   { path: "settings", component: SettingsComponent },
-  { path: "members", component: MembersComponent, canActivate: [AuthGuard] },
+  { path: "members", component: MembersComponent,  },
   { path: "todo", component: ToDoComponent },
   /*we can add RoleGuard to the path to check if the user has the right role to access the page, in this case the token must have the role "admin" 
     or it will not be able to access the page*/
   //could add guard to prevent unauthorized access to certaion routes but we are doing that differently by using *ngIf in our html code
   //update: added the auth guard to the routes just to try it out
   
+
+  /*canActivate: [AuthGuard]
+  canActivate: [AuthGuard]*/
 ];
 
 @NgModule({
