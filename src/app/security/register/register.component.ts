@@ -19,21 +19,23 @@ export class RegisterComponent implements OnInit {
   registerGroup = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    repeatPassword: new FormControl('', Validators.required)
+    // repeatPassword: new FormControl('', Validators.required)
   });
 
   test(){
     const email = this.registerGroup.value.email;
     const password = this.registerGroup.value.password;
-    const repeatPassword = this.registerGroup.value.repeatPassword;
-    console.log(email, password, repeatPassword);
+    // const repeatPassword = this.registerGroup.value.repeatPassword;
+    console.log(email, password);
   }
 
   proceedRegister() {
-    console.log(this.registerGroup.value);
+    if(this.registerGroup.valid){
+      console.log(this.registerGroup.value);
     
-    this.authService.proceedRegister(this.registerGroup.value)  
-      .subscribe(() => this.router.navigateByUrl('/login'));
+      this.authService.proceedRegister(this.registerGroup.value)  
+        .subscribe(() => this.router.navigateByUrl('/login'));
+    }
   }
 
 

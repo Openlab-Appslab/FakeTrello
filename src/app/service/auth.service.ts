@@ -13,8 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  loginUrl = 'http://localhost:8080/XXXX';
-  registerUrl = 'http://localhost:8080/XXXX';
+  private apiServerUrl = 'http://localhost:8080';
 
   constructor(
     private readonly http: HttpClient,
@@ -24,11 +23,11 @@ export class AuthService {
   ) { }
 
     proceedLogin(usercred: any){
-      return this.http.post(this.loginUrl,usercred);
+      return this.http.post(`${this.apiServerUrl}/showBSI`,usercred);
     }
 
     proceedRegister(usercred: any){
-      return this.http.post(this.registerUrl,usercred);
+      return this.http.post(`${this.apiServerUrl}/noAuth/register`,usercred);
     }
 
     isLoggedIn(){
