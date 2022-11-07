@@ -27,7 +27,7 @@ export class AuthService {
       return this.http.post(this.loginUrl,usercred);
     }
 
-    ProceedRegister(usercred: any){
+    proceedRegister(usercred: any){
       return this.http.post(this.registerUrl,usercred);
     }
 
@@ -35,11 +35,11 @@ export class AuthService {
       return localStorage.getItem('token') != null;
     }
 
-    GetToken(){
+    getToken(){
       return localStorage.getItem('token') || '';
     }
 
-    HaveAccess(){
+    haveAccess(){
       var logInToken=localStorage.getItem('token') || '';
       var _extractedToken = logInToken.split('.')[1];
       var _atobdata = atob(_extractedToken);

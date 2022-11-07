@@ -29,10 +29,10 @@ export class RegisterComponent implements OnInit {
     console.log(email, password, repeatPassword);
   }
 
-  ProceedRegister() {
+  proceedRegister() {
     console.log(this.registerGroup.value);
     
-    this.authService.ProceedRegister(this.registerGroup.value)  
+    this.authService.proceedRegister(this.registerGroup.value)  
       .subscribe(() => this.router.navigateByUrl('/login'));
   }
 

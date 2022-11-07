@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
 
   responseData: any;
+  componentName = "test";
 
   constructor(
     private readonly router: Router,
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     console.log(email, password);
   }
 
-  Proceedogin() {
+  proceedLogin() {
     if(this.loginGroup.valid){
       this.authService.proceedLogin(this.loginGroup.value)
         .subscribe(result=>{
