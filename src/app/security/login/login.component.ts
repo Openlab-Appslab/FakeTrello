@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
 
   proceedLogin() {
     if(this.loginGroup.valid){
-      this.authService.proceedLogin(this.loginGroup.value)
+      const email = this.loginGroup.value.email;
+      const password = this.loginGroup.value.password;
+      this.authService.proceedLogin(email, password)
         .subscribe(result=>{
           if(result != null){
             this.responseData = result;

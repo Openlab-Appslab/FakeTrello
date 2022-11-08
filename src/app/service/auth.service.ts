@@ -22,12 +22,12 @@ export class AuthService {
     
   ) { }
 
-    proceedLogin(usercred: any){
-      return this.http.post(`${this.apiServerUrl}/showBSI`,usercred);
+    proceedLogin(email: string, password: string){
+      return this.http.post(`${this.apiServerUrl}/showBSI`,email + password);
     }
 
-    proceedRegister(usercred: any){
-      return this.http.post(`${this.apiServerUrl}/noAuth/register`,usercred);
+    proceedRegister(email: string, password: string){
+      return this.http.post(`${this.apiServerUrl}/noAuth/register`,email + password);
     }
 
     isLoggedIn(){

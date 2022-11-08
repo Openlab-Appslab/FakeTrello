@@ -31,9 +31,11 @@ export class RegisterComponent implements OnInit {
 
   proceedRegister() {
     if(this.registerGroup.valid){
+      const email = this.registerGroup.value.email;
+      const password = this.registerGroup.value.password;
       console.log(this.registerGroup.value);
     
-      this.authService.proceedRegister(this.registerGroup.value)  
+      this.authService.proceedRegister(email, password)  
         .subscribe(() => this.router.navigateByUrl('/login'));
     }
   }
