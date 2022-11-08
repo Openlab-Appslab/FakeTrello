@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         if (this.authService.isLoggedIn() && err.status === 401) {
           this.authService.logout();
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/workspace');
         }
         throw err;
       })

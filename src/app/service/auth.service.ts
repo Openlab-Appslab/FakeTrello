@@ -4,9 +4,9 @@ import { Observable, tap } from 'rxjs';
 // import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
-// const httpOptions = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class AuthService {
       }),
       withCredentials: true
     };
-    return this.httpClient.get(`${this.apiServerUrl}/noAuth/register`, options).pipe(
+    return this.httpClient.get(`${this.apiServerUrl}/showBSI`, options).pipe(
       tap(() => this.token = token)
     );
   }
@@ -43,9 +43,17 @@ export class AuthService {
     //   return this.httpClient.post(`${this.apiServerUrl}/showBSI`,email + password);
     // }
 
-    proceedRegister(email: string, password: string){
-      return this.httpClient.post(`${this.apiServerUrl}/noAuth/register`,email + password);
+    // proceedRegister(email: string, password: string){
+    //   return this.httpClient.post(`${this.apiServerUrl}/noAuth/register`,email + password);
+    // }
+
+    proceedRegister(email: string, password: string): Observable<any> {
+        return this.http.post('http://localhost:8080/noAuth/register', {
+        email,
+        password,
+      }, httpOptions);
     }
+  
 
     isLoggedIn(): boolean {
       return !!this.token;
