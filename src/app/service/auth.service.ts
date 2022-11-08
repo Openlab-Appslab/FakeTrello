@@ -17,25 +17,47 @@ export class AuthService {
 
   constructor(
     private readonly http: HttpClient,
-    // public cookies: CookieService,
+    private readonly httpClient: HttpClient,
     private router: Router,
     
   ) { }
 
-    proceedLogin(email: string, password: string){
-      return this.http.post(`${this.apiServerUrl}/showBSI`,email + password);
-    }
+  token: string;
+
+  proceedLogin(email: string, password: string): Observable<any> {
+    const info = btoa(`${email}:${password}`);
+    const token = `Basic ${info}`;
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: token,
+        'X-Requested-With' : 'XMLHttpRequest'
+      }),
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.apiServerUrl}/noAuth/register`, options).pipe(
+      tap(() => this.token = token)
+    );
+  }
+
+    // proceedLogin(email: string, password: string){
+    //   return this.httpClient.post(`${this.apiServerUrl}/showBSI`,email + password);
+    // }
 
     proceedRegister(email: string, password: string){
-      return this.http.post(`${this.apiServerUrl}/noAuth/register`,email + password);
+      return this.httpClient.post(`${this.apiServerUrl}/noAuth/register`,email + password);
     }
 
-    isLoggedIn(){
-      return localStorage.getItem('token') != null;
+    isLoggedIn(): boolean {
+      return !!this.token;
     }
 
-    getToken(){
-      return localStorage.getItem('token') || '';
+    getToken(): string {
+      return this.token;
+    }
+
+    logout(): void {
+      this.token = '';
+
     }
 
     haveAccess(){
