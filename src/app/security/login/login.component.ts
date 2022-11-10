@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       const username = this.loginGroup.value.username;
       const password = this.loginGroup.value.password;
       this.authService.login(username, password)
-        .subscribe(() => this.router.navigateByUrl('/clicker'));
+        .subscribe(() => this.router.navigateByUrl('/boards'));
     }
   }
 
