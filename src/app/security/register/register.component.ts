@@ -29,13 +29,13 @@ export class RegisterComponent implements OnInit {
     console.log(email, password);
   }
 
-  proceedRegister() {
+  register() {
     if(this.registerGroup.valid){
       const email = this.registerGroup.value.email;
       const password = this.registerGroup.value.password;
       console.log(this.registerGroup.value);
     
-      this.authService.proceedRegister(email, password)  
+      this.authService.register(email, password)  
         .subscribe(() => this.router.navigateByUrl('/login'));
     }
   }

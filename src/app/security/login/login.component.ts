@@ -30,18 +30,12 @@ export class LoginComponent implements OnInit {
     console.log(email, password);
   }
 
-  proceedLogin() {
-    if(this.loginGroup.valid){
-      const email = this.loginGroup.value.email;
+  login(): void {
+    if (this.loginGroup.valid) {
+      const username = this.loginGroup.value.username;
       const password = this.loginGroup.value.password;
-      this.authService.proceedLogin(email, password)
-        .subscribe(result=>{
-          if(result != null){
-            this.responseData = result;
-            localStorage.setItem('token', this.responseData.jwtToken);
-            this.router.navigate(['/boards']);
-          }
-      })
+      this.authService.login(username, password)
+        .subscribe(() => this.router.navigateByUrl('/clicker'));
     }
   }
 

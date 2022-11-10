@@ -13,8 +13,6 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private apiServerUrl = 'http://localhost:8080';
-
   constructor(
     private readonly http: HttpClient,
     private readonly httpClient: HttpClient,
@@ -24,7 +22,7 @@ export class AuthService {
 
   token: string;
 
-  proceedLogin(email: string, password: string): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     const info = btoa(`${email}:${password}`);
     const token = `Basic ${info}`;
     const options = {
@@ -34,7 +32,7 @@ export class AuthService {
       }),
       withCredentials: true
     };
-    return this.httpClient.get(`${this.apiServerUrl}/showBSI`, options).pipe(
+    return this.httpClient.get('http://localhost:8080/showBSI', options).pipe(
       tap(() => this.token = token)
     );
   }
@@ -47,7 +45,7 @@ export class AuthService {
     //   return this.httpClient.post(`${this.apiServerUrl}/noAuth/register`,email + password);
     // }
 
-    proceedRegister(email: string, password: string): Observable<any> {
+    register(email: string, password: string): Observable<any> {
         return this.http.post('http://localhost:8080/noAuth/register', {
         email,
         password,
@@ -68,20 +66,6 @@ export class AuthService {
 
     }
 
-    haveAccess(){
-      var logInToken=localStorage.getItem('token') || '';
-      var _extractedToken = logInToken.split('.')[1];
-      var _atobdata = atob(_extractedToken);
-      var _finalData = JSON.parse(_atobdata);
-      console.log(_finalData);
-      if(_finalData.role == 'admin'){
-        return true;
-      }
-      alert('You are not authorized to access this page');
-      return false;
-    }
-
     //https://www.youtube.com/watch?v=Kfzcs-d9R7k&t=29s&ab_channel=NihiraTechiees for any more questions
     //https://www.youtube.com/watch?v=Q8s0CYhnHgM&ab_channel=NihiraTechiees passing authorization header
-
 }
