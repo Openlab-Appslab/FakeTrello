@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     if (this.loginGroup.valid) {
-      const username = this.loginGroup.value.username;
+      const email = this.loginGroup.value.email;
       const password = this.loginGroup.value.password;
-      this.authService.login(username, password)
+      this.authService.login(email, password)
         .subscribe(() => this.router.navigateByUrl('/boards'));
     }
   }
