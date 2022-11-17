@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(
     private readonly router: Router,
-    private _auth: AuthService,
+    private authService: AuthService,
   ) { }
 
   title = 'FakeTrello';
@@ -20,4 +20,13 @@ export class AppComponent {
   lastName = "Tehla"
 
   element = false;
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
+  onCLickLogOut(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

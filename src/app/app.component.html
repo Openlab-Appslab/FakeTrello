@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <mat-toolbar class="mat_toolbar">
 
-        <div class="burger_wrapper" *ngIf="element == false">  
+        <div class="burger_wrapper" *ngIf="isLoggedIn() == true">  
              <button class="sidebar_open_close_button" mat-icon-button (click)="sidenav.toggle()">
                     <mat-icon *ngIf="!sidenav.opened">
                         menu
@@ -92,9 +92,9 @@
         </mat-menu>
     </div>
     
-        <a *ngIf="element == false" routerLink="login" class="log_button">Log in</a>
-        <a *ngIf="element == false" routerLink="register" class="reg_button">Register</a>
-        <a *ngIf="element == true" routerLink="basicRoute" class="log_out_button">Log Out</a> 
+        <a *ngIf="isLoggedIn() == false" routerLink="login" class="log_button">Log in</a>
+        <a *ngIf="isLoggedIn() == false" routerLink="register" class="reg_button">Register</a>
+        <a *ngIf="isLoggedIn() == true" routerLink="basicRoute" class="log_out_button" (click)="onCLickLogOut()">Log Out</a> 
 
 </mat-toolbar>
 
