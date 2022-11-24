@@ -32,6 +32,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ToDoComponent } from './to-do/to-do.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     SettingsComponent,
     MembersComponent,
     ToDoComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   ],
   providers: [
     // CookieService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} //multi = can be used across multiple classes
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ,//multi = can be used across multiple classes
   ],
   bootstrap: [AppComponent]
 })
