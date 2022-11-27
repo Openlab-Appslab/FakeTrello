@@ -25,6 +25,7 @@ export class ToDoComponent implements OnInit {
   addTask() {
     this.tasks.push({
       description: this.toDoForm.value.item, 
+      deadline: this.toDoForm.value.deadline,
       done: false
     });
     this.toDoForm.reset();
@@ -44,12 +45,14 @@ export class ToDoComponent implements OnInit {
 
   onEdit(item: ITask, i: number){
     this.toDoForm.controls['item'].setValue(item.description);
+    this.toDoForm.controls['deadline'].setValue(item.deadline);
     this.updateIndex = i;
     this.isEditEnabled = true;
   }
 
   updateTask(){
     this.tasks[this.updateIndex].description = this.toDoForm.value.item;
+    this.tasks[this.updateIndex].deadline = this.toDoForm.value.deadline;
     this.tasks[this.updateIndex].done = false;
     this.toDoForm.reset();
     this.updateIndex = undefined;
@@ -72,6 +75,7 @@ export class ToDoComponent implements OnInit {
   ngOnInit(): void {
     this.toDoForm = this.fb.group({
       item : ['', Validators.required],
+      deadline: ['',]
     });
   }
 

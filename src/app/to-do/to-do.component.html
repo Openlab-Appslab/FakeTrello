@@ -6,10 +6,17 @@
                 <form [formGroup]="toDoForm">
                     <mat-form-field appearance="outline">
                         <mat-label>Task Name</mat-label>
-                        <input formControlName="item" matInput placeholder="Placeholder">
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <input formControlName="item" matInput placeholder="Add Task">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                         <mat-hint>add task name</mat-hint>
                     </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Task Deadline</mat-label>
+                        <input type="date" formControlName="deadline" matInput placeholder="Add Deadline">
+                        <mat-hint>add task name</mat-hint>
+                    </mat-form-field>
+
                     <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button>
                     <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Update Task</button>
                 </form>
@@ -29,7 +36,7 @@
                               [cdkDropListData]="tasks"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}}
+                              <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
                                 <div class="box">
                                     <button mat-icon-button color="primary" (click)="onEdit(item, i)">
                                         <mat-icon>edit</mat-icon>
@@ -52,7 +59,7 @@
                               [cdkDropListData]="inprogress"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.description}}
+                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
                                 <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
@@ -70,7 +77,7 @@
                               [cdkDropListData]="done"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.description}}
+                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}} 
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteDoneTask(i)">
                                         <mat-icon>delete</mat-icon>

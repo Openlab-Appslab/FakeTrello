@@ -1,5 +1,5 @@
 export interface ITask {
-    deadline: any;
+    deadline: Date;
     description: string,
     done: boolean,
     
