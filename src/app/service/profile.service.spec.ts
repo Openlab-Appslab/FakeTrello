@@ -10,9 +10,9 @@ describe('ProfileService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ProfileService);
     TestBed.configureTestingModule({
-      imports: [ProfileService, HttpClient],
+      imports: [],
       declarations: [ProfileService],
-      providers: [HttpClient, ProfileService]
+      providers: [HttpClient]
     })
   });
 

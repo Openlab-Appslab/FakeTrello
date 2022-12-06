@@ -11,9 +11,9 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
     TestBed.configureTestingModule({
-      imports: [AuthGuard, AuthService, HttpClient,],
+      imports: [],
       declarations: [AuthService],
-      providers: [HttpClient, AuthGuard, AuthService]
+      providers: [HttpClient]
     })
 
   });

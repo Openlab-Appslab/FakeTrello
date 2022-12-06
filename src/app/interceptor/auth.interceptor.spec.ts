@@ -1,12 +1,18 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthInterceptor } from './auth.interceptor';
 
 describe('AuthInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      AuthInterceptor
-      ]
+      AuthInterceptor,
+      HttpClient,
+      HttpHandler,
+      ],
+    imports: [RouterTestingModule]
   }));
 
   it('should be created', () => {

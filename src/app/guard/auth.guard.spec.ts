@@ -12,10 +12,10 @@ describe('AuthGuard', () => {
     TestBed.configureTestingModule({});
     guard = TestBed.inject(AuthGuard);
 
-  //   await TestBed.configureTestingModule({
-  //     declarations: [ AuthGuard ],
-  //     providers: [HttpClient]
-  // });
+    TestBed.configureTestingModule({
+      declarations: [ AuthGuard ],
+      providers: [HttpClient]
+  });
   });
 
   it('should be created', () => {
