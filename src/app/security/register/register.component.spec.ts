@@ -1,6 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterComponent } from './register.component';
 
@@ -12,8 +13,9 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ RegisterComponent ],
-      providers: [HttpClient, HttpHandler, Router]
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   });

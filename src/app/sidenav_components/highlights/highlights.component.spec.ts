@@ -12,7 +12,7 @@ describe('HighlightsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ HighlightsComponent ],
-      providers: [Router]
+      providers: []
     })
     .compileComponents();
   });
