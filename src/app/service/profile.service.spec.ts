@@ -7,11 +7,10 @@ describe('ProfileService', () => {
   let service: ProfileService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
     service = TestBed.inject(ProfileService);
     TestBed.configureTestingModule({
-      imports: [],
-      declarations: [ProfileService],
+      imports: [HttpClient],
+      declarations: [],
       providers: [HttpClient]
     })
   });

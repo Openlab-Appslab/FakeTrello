@@ -9,9 +9,7 @@ describe('AuthGuard', () => {
   let guard: AuthGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
     guard = TestBed.inject(AuthGuard);
-
     TestBed.configureTestingModule({
       declarations: [ AuthGuard ],
       providers: [HttpClient]
