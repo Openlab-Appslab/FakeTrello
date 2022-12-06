@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -10,6 +11,10 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent
+      ],
+      providers: [
+        HttpClient,
+        HttpHandler
       ],
     }).compileComponents();
   });
