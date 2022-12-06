@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: "basicRoute", component: MainComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "boards", component: BoardsComponent },
-  { path: "highlights", component: HighlightsComponent},
-  { path: "settings", component: SettingsComponent},
-  { path: "members", component: MembersComponent},
-  { path: "todo", component: ToDoComponent },
+  { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
+  { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
+  { path: "settings", component: SettingsComponent, canActivate: [AuthGuard]},
+  { path: "members", component: MembersComponent, canActivate: [AuthGuard]},
+  { path: "todo", component: ToDoComponent, canActivate: [AuthGuard]},
   /*we can add RoleGuard to the path to check if the user has the right role to access the page, in this case the token must have the role "admin" 
     or it will not be able to access the page*/
   //could add guard to prevent unauthorized access to certaion routes but we are doing that differently by using *ngIf in our html code
