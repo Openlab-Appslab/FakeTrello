@@ -22,6 +22,9 @@ export class ToDoComponent implements OnInit {
     
   ) { }
 
+
+
+
   addTask() {
     this.tasks.push({
       description: this.toDoForm.value.item, 
@@ -30,6 +33,15 @@ export class ToDoComponent implements OnInit {
     });
     this.toDoForm.reset();
   }
+
+  dontMakeItemIfEmpty() {
+    if (this.toDoForm.value.item == ' ') {
+      console.log('empty');
+    }
+  else {
+    this.addTask();
+  }
+}
 
   deleteTask(i: number){
     this.tasks.splice(i, 1);

@@ -8,13 +8,12 @@ describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
+    // service = TestBed.inject(AuthService);
     TestBed.configureTestingModule({
-      imports: [],
-      declarations: [],
+      imports: [HttpClient],
+      declarations: [AuthService],
       providers: [HttpClient]
-    })
+    }).compileComponents();
 
   });
 

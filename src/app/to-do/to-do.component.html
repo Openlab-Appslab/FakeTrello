@@ -5,7 +5,7 @@
             <mat-card class="matcard mt-3">
                 <form [formGroup]="toDoForm">
                     <mat-form-field appearance="outline">
-                        <mat-label>Task Name</mat-label>
+                        <mat-label>Task Name</mat-label> 
                         <input formControlName="item" matInput placeholder="Add Task">
                         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                         <mat-hint>add task name</mat-hint>
@@ -17,7 +17,7 @@
                         <mat-hint>add task deadline</mat-hint>
                     </mat-form-field>
 
-                    <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button>
+                    <button *ngIf="!isEditEnabled" (click)="dontMakeItemIfEmpty()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button>
                     <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Update Task</button>
                 </form>
             </mat-card>

@@ -9,10 +9,10 @@ describe('ProfileService', () => {
   beforeEach(() => {
     service = TestBed.inject(ProfileService);
     TestBed.configureTestingModule({
-      imports: [HttpClient],
-      declarations: [],
+      imports: [],
+      declarations: [ ProfileService ],
       providers: [HttpClient]
-    })
+    }).compileComponents();
   });
 
   it('should be created', () => {
