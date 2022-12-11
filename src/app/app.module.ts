@@ -34,6 +34,7 @@ import { ToDoComponent } from './to-do/to-do.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AuthService } from './service/auth.service';
+import { PomodoroComponent } from './pomodoro/pomodoro.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AuthService } from './service/auth.service';
     MembersComponent,
     ToDoComponent,
     FileUploadComponent,
+    PomodoroComponent,
   ],
   imports: [
     BrowserModule,

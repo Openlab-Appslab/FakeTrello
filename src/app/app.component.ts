@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './service/auth.service';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { PomodoroComponent } from './pomodoro/pomodoro.component';
 
 @Component({
   selector: 'app-root',
