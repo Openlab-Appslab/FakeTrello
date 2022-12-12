@@ -11,6 +11,7 @@ import { MembersComponent } from './sidenav_components/members/members.component
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "members", component: MembersComponent, canActivate: [AuthGuard]},
   { path: "todo", component: ToDoComponent, canActivate: [AuthGuard]},
   { path: "pomodoro", component: PomodoroComponent},
+  { path: "timeTable", component: TimetableComponent },
   /*we can add RoleGuard to the path to check if the user has the right role to access the page, in this case the token must have the role "admin" 
     or it will not be able to access the page*/
   //could add guard to prevent unauthorized access to certaion routes but we are doing that differently by using *ngIf in our html code
