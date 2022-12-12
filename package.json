@@ -20,12 +20,14 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@syncfusion/ej2-angular-schedule": "^20.3.58",
     "bootstrap": "^5.2.2",
     "jquery": "^3.6.1",
     "ngx-cookie-service": "^14.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@syncfusion/ej2-material-theme": "~20.3.58"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.5",

@@ -36,6 +36,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AuthService } from './service/auth.service';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -76,12 +77,14 @@ import { TimetableComponent } from './timetable/timetable.component';
     MatSliderModule,
     HttpClientModule,
     DragDropModule,
+    ScheduleModule, RecurrenceEditorModule,
     
   ],
   providers: [
     // CookieService,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} ,//multi = can be used across multiple classes
+    DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,
   ],
   bootstrap: [AppComponent]
 })
