@@ -32,7 +32,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ToDoComponent } from './to-do/to-do.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+// import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AuthService } from './service/auth.service';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
@@ -50,7 +50,7 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
     SettingsComponent,
     MembersComponent,
     ToDoComponent,
-    FileUploadComponent,
+    // FileUploadComponent,
     PomodoroComponent,
     TimetableComponent,
   ],

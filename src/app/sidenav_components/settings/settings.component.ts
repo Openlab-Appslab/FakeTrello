@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
+import { UploadfileService } from 'src/app/service/upload.service';
 
 @Component({
   selector: 'app-settings',
@@ -17,6 +18,8 @@ export class SettingsComponent implements OnInit {
   constructor(
     private router: Router,
     private profileService: ProfileService,
+    private fileUploadService: UploadfileService,
+
     
   ) { }
 
@@ -30,6 +33,34 @@ export class SettingsComponent implements OnInit {
     nickName: new FormControl('', Validators.required),
     phoneNumber: new FormControl('', Validators.required),
   });
+
+  // Variable to store shortLink from api response
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file: File; // Variable to store file
+  // file: File = null; 
+
+  // On file Select
+  onChange(event: any) {
+    this.file = event.target.files[0];
+}
+
+// OnClick of button Upload
+  onUpload() {
+    this.loading = !this.loading;
+    console.log(this.file);
+    this.fileUploadService.upload(this.file).subscribe(
+        (event: any) => {
+            if (typeof (event) === 'object') {
+
+                // Short link via api response
+                this.shortLink = event.link;
+
+                this.loading = false; // Flag variable 
+            }
+        }
+    );
+  }
 
   sendUserInfo(){
     if(this.profileUpdateGroup.valid){

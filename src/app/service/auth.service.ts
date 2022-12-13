@@ -37,14 +37,6 @@ export class AuthService {
     );
   }
 
-    // proceedLogin(email: string, password: string){
-    //   return this.httpClient.post(`${this.apiServerUrl}/showBSI`,email + password);
-    // }
-
-    // proceedRegister(email: string, password: string){
-    //   return this.httpClient.post(`${this.apiServerUrl}/noAuth/register`,email + password);
-    // }
-
     register(email: string, password: string): Observable<any> {
         return this.http.post('http://localhost:8080/noAuth/register', {
         email,
