@@ -4,5 +4,5 @@ export interface ProfileData {
     firstName: string;
     lastName: string;
     nickName: string;
-    phoneNumber: string;
+    phoneNumber: number;
 }
