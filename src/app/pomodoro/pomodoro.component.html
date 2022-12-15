@@ -8,7 +8,7 @@
   {{ mins }} : {{ secs < 10 ? "0" + secs : secs }}
 </h2>
 
-<div *ngIf="isBreak">
+<div class="wrapper" *ngIf="isBreak">
   <h2>time for break!</h2>
   {{ breakMins }} : {{ breakSecs < 10 ? "0" + breakSecs : breakSecs }}
 </div>

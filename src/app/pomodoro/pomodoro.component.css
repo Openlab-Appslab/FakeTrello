@@ -1,3 +1,7 @@
+/* *{
+    outline: 1px solid red;
+} */
+
 body{
     justify-content: center;
     align-items: center;
@@ -56,9 +60,16 @@ body{
     padding: auto;
 }
 
-.fa-play{
+.fas{
     font-size: 20px;
-    color: #000;
-    margin: auto;
-    padding: auto;
+    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: none;
+}
+
+.change{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    
 }
