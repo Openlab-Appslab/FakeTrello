@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
-  { path: "settings", component: SettingsComponent,},
+  { path: "settings", component: SettingsComponent, canActivate: [AuthGuard]},
   { path: "members", component: MembersComponent, canActivate: [AuthGuard]},
   { path: "todo", component: ToDoComponent, canActivate: [AuthGuard]},
   { path: "pomodoro", component: PomodoroComponent},

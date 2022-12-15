@@ -50,7 +50,6 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
     SettingsComponent,
     MembersComponent,
     ToDoComponent,
-    // FileUploadComponent,
     PomodoroComponent,
     TimetableComponent,
   ],

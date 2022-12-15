@@ -22,7 +22,7 @@ export class ProfileService {
   addProfileData(firstName: string, lastName: string, nickName: string, phoneNumber: string){
     console.log(firstName, lastName, nickName, phoneNumber);
 
-    return this.http.put('http://localhost:8080/edit/user', {
+    return this.http.put('http://localhost:8080/editUser', {
       firstName,
       lastName,
       nickName,
@@ -32,5 +32,9 @@ export class ProfileService {
 
   getProfileData(): Observable<ProfileData>{
     return this.http.get<ProfileData>('http://localhost:8080/getUserDetails');
+  }
+
+  deleteUser(): Observable<void>{
+    return this.http.delete<void>('http://localhost:8080/deleteUser');
   }
 }

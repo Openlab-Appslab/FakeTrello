@@ -19,7 +19,6 @@ export class SettingsComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private fileUploadService: UploadfileService,
-
     
   ) { }
 
@@ -62,6 +61,10 @@ export class SettingsComponent implements OnInit {
     );
   }
 
+  test(){
+    console.log("fungujDPC");
+  }
+
   sendUserInfo(){
     if(this.profileUpdateGroup.valid){
 
@@ -89,6 +92,11 @@ export class SettingsComponent implements OnInit {
           phoneNumber: response.phoneNumber,
         })
       })
+  }
+
+  deleteUser(){ //function for deleting the listing by using the listingId
+    this.profileService.deleteUser()
+      .subscribe(() => this.router.navigateByUrl('/login'));
   }
 
 }
