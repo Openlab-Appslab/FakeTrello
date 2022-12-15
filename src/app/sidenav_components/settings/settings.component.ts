@@ -62,7 +62,7 @@ export class SettingsComponent implements OnInit {
   }
 
   test(){
-    console.log("fungujDPC");
+    console.log("funguj");
   }
 
   sendUserInfo(){
@@ -84,6 +84,7 @@ export class SettingsComponent implements OnInit {
     this.profileService.getProfileData()
       .subscribe(response => {
         this.profileData = response;
+        console.log(this.profileData);
         this.profileUpdateGroup.patchValue({
           email: response.email,
           firstName: response.firstName,

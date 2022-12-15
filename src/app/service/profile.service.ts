@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { ProfileData } from '../model/profileData';
 
@@ -16,11 +17,13 @@ export class ProfileService {
 
   constructor(
     private http: HttpClient,
+    private cookies: CookieService,
 
   ) { }
 
-  addProfileData(firstName: string, lastName: string, nickName: string, phoneNumber: string){
+  addProfileData(firstName: string, lastName: string, nickName: string, phoneNumber: number){
     console.log(firstName, lastName, nickName, phoneNumber);
+    console.log("service works");
 
     return this.http.put('http://localhost:8080/editUser', {
       firstName,
@@ -36,5 +39,6 @@ export class ProfileService {
 
   deleteUser(): Observable<void>{
     return this.http.delete<void>('http://localhost:8080/deleteUser');
+    
   }
 }

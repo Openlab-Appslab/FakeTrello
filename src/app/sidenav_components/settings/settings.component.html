@@ -33,7 +33,7 @@
     <div class="py-2" *ngIf="profileData">
         <form [formGroup]="profileUpdateGroup" (ngSubmit)="sendUserInfo()">
             <div class="row py-2">
-                <!-- <h2>{{aa}}</h2> -->
+
                 <div class="col-md-6">
                     <label for="firstname">First Name</label>
                     <input type="text" class="bg-light form-control" formControlName="firstName" required>
@@ -46,7 +46,7 @@
             <div class="row py-2">
                 <div class="col-md-6 pt-md-0 pt-3">
                     <label for="nickName">NickName</label>
-                    <input type="tel" class="bg-light form-control" formControlName="nickName" required>
+                    <input type="text" class="bg-light form-control" formControlName="nickName" required>
                 </div>
                 <div class="col-md-6 pt-md-0 pt-3">
                     <label for="phone">Phone Number</label>
