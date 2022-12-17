@@ -6,22 +6,24 @@
   {{ mins }} : {{ secs < 10 ? "0" + secs : secs }}
 </h2>
 
-  <div *ngIf="isBreak">
-    <h2>time for break!</h2>
+  <div class="timer" *ngIf="isBreak">
     {{ breakMins }} : {{ breakSecs < 10 ? "0" + breakSecs : breakSecs }}
   </div>
   <div class="btn_wrapper">
     <button id="go" *ngIf="!isRunning" (click)="run()">
-      <i class="fas fa-play"></i>
+      <!-- <i class="fas fa-play"></i> -->
+      START
     </button>
 
     <button id="pause" *ngIf="isRunning" (click)="pause()">
-      <i class="fas fa-pause"></i>
+      <!-- <i class="fas fa-pause"></i> -->
+      PAUSE
     </button>
 
     <button id="reset" *ngIf="isRunning" (click)="reset()">
-      <i class="fas fa-undo-alt"></i></button
-    >
+      <!-- <i class="fas fa-undo-alt"></i> -->
+      RESET
+      </button>
   </div>
   <div class="options">
     <p>
