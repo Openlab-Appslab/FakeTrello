@@ -14,7 +14,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Task Deadline</mat-label>
                         <input type="date" formControlName="deadline" matInput placeholder="Add Deadline">
-                        <mat-hint>add task deadline</mat-hint>
+                        <mat-hint>add task deadline</mat-hint> 
                     </mat-form-field>
 
                     <button *ngIf="!isEditEnabled" (click)="dontMakeItemIfEmpty()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button>

@@ -15,7 +15,7 @@ export class ToDoComponent implements OnInit {
   inprogress: ITask[] = [];
   done: ITask[] = [];
   updateIndex!: any;
-  isEditEnabled: boolean = false;
+  isEditEnabled: boolean = false; 
 
   constructor(
     private fb: FormBuilder,
