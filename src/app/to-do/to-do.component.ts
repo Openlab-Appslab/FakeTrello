@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITask } from '../model/task';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-to-do',
@@ -19,13 +20,14 @@ export class ToDoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private taskService: TaskService,
     
   ) { }
 
 
 
 
-  addTask() {
+  addTaskaaa() {
     this.tasks.push({
       description: this.toDoForm.value.item, 
       deadline: this.toDoForm.value.deadline,
@@ -38,10 +40,28 @@ export class ToDoComponent implements OnInit {
     if (this.toDoForm.value.item == ' ') {
       console.log('empty');
     }
-  else {
-    this.addTask();
+    else {
+      this.addTask();
+    }
   }
-}
+
+  addTask(){
+    if(this.toDoForm.valid){
+      console.log(this.toDoForm.value);
+
+      const text = this.toDoForm.value.item;
+      const date = this.toDoForm.value.deadline;
+      console.log(text, date);
+
+      this.taskService.createTask(text, date);
+        // .subscribe(() => this.router.navigate(['/myListings'])); 
+        // .subscribe((response: Task[]) =>
+        // this.tasks.push{
+        //   description = response.text,
+        //   deadline = response.date,
+        // });
+    }
+  }
 
   deleteTask(i: number){
     this.tasks.splice(i, 1);
