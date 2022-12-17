@@ -1,28 +1,35 @@
+
+
 body{
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: auto;
     padding: auto;
 }
 
-.wprapper{
+.wrapper{
+    padding-top: 4%;
+    background-color: #fff;
     width: 50%;
-    height: 50%;
-    background-color: aquamarine;
-    margin: auto;
+    height: 50%;    
+    margin-top: 10%;
+    margin-left: 25%;
     padding: auto;
     text-align: center;
+    justify-content: center;
+    border-radius: 17px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    
 }
 
 .timer{
+    margin-bottom: 1%;
     font-family: 'Roboto', sans-serif;
     font-size: 100px;
     font-weight: bold;
     color: #000;
     text-align: center;
-    margin: auto;
-    padding: auto;
-    background-color: aquamarine;
 }
 
 .options{
@@ -33,7 +40,6 @@ body{
     text-align: center;
     margin: auto;
     padding: auto;
-    background-color: aquamarine;
     margin-top: 5%;
 }
 
@@ -45,20 +51,62 @@ body{
     text-align: center;
     margin: auto;
     padding: auto;
-    background-color: aquamarine;
     margin-top: 1%;
 }
 
-.fa-pause{
-    font-size: 20px;
+#go{
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 10px;;
+    width: 100px;
+    height: 50px;
+    box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.5); 
+    border: none;
     color: #000;
-    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#pause{
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 10px;;
+    width: 100px;
+    height: 50px;
+    box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.5); 
+    border: none;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#reset{
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 10px;;
+    width: 100px;
+    height: 50px;
+    box-shadow: 0 0 10px 0 rgba(77, 77, 77, 0.5); 
+    border: none;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
     padding: auto;
 }
 
-.fa-play{
-    font-size: 20px;
-    color: #000;
-    margin: auto;
-    padding: auto;
+.change{
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
