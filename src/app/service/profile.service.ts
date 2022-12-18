@@ -21,14 +21,14 @@ export class ProfileService {
 
   ) { }
 
-  addProfileData(firstName: string, lastName: string, nickName: string, phoneNumber: number){
-    console.log(firstName, lastName, nickName, phoneNumber);
+  addProfileData(firstName: string, lastName: string, nickname: string, phoneNumber: number): Observable<any>{
+    console.log(firstName, lastName, nickname, phoneNumber);
     console.log("service works");
 
     return this.http.put('http://localhost:8080/editUser', {
       firstName,
       lastName,
-      nickName,
+      nickname,
       phoneNumber,
     }, httpOptions);
   }

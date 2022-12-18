@@ -37,6 +37,7 @@ import { AuthService } from './service/auth.service';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
     MatSliderModule,
     HttpClientModule,
     DragDropModule,
-    ScheduleModule, RecurrenceEditorModule,
+    ScheduleModule, RecurrenceEditorModule, NgbModule,
     
   ],
   providers: [
