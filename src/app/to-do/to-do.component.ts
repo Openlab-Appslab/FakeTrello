@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITask } from '../model/task';
 import { TaskService } from '../service/task.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-to-do',
@@ -21,13 +22,19 @@ export class ToDoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private taskService: TaskService,
-    
-  ) { }
+    private modalService: NgbModal,
 
+    ) { }
 
+  openDeleteModal(content: any) { //function for opening the delete modal
+    this.modalService.open(content);
+  }
 
+  openEditModal(content: any) { //function for opening the edit modal
+    this.modalService.open(content);
+  };
 
-  addTaskaaa() {
+  addTask() {
     this.tasks.push({
       description: this.toDoForm.value.item, 
       deadline: this.toDoForm.value.deadline,
@@ -45,7 +52,7 @@ export class ToDoComponent implements OnInit {
     }
   }
 
-  addTask(){
+  addTaskA(){
     if(this.toDoForm.valid){
       console.log(this.toDoForm.value);
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
 import { UploadfileService } from 'src/app/service/upload.service';
@@ -19,7 +20,8 @@ export class SettingsComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private fileUploadService: UploadfileService,
-    
+    private modalService: NgbModal,
+
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class SettingsComponent implements OnInit {
     nickName: new FormControl('', Validators.required),
     phoneNumber: new FormControl('', Validators.required),
   });
+
+  openDeleteModal(content: any) { //function for opening the delete modal
+    this.modalService.open(content);
+  }
 
   // Variable to store shortLink from api response
   shortLink: string = "";
@@ -95,7 +101,7 @@ export class SettingsComponent implements OnInit {
       })
   }
 
-  deleteUser(){ //function for deleting the listing by using the listingId
+  deleteUser(){
     this.profileService.deleteUser()
       .subscribe(() => this.router.navigateByUrl('/login'));
   }
