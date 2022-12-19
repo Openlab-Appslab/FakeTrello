@@ -31,7 +31,7 @@ export class SettingsComponent implements OnInit {
   profileUpdateGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    nickName: new FormControl('', Validators.required),
+    nickname: new FormControl('', Validators.required),
     phoneNumber: new FormControl('', Validators.required),
   });
 
@@ -78,10 +78,10 @@ export class SettingsComponent implements OnInit {
 
       const firstName = this.profileUpdateGroup.value.firstName;
       const lastName = this.profileUpdateGroup.value.lastName;
-      const nickName = this.profileUpdateGroup.value.nickName;
+      const nickname = this.profileUpdateGroup.value.nickname;
       const phoneNumber = this.profileUpdateGroup.value.phoneNumber;
 
-      this.profileService.addProfileData(firstName, lastName, nickName, phoneNumber)
+      this.profileService.addProfileData(firstName, lastName, nickname, phoneNumber)
         .subscribe(() => this.router.navigate(['/settings'])); 
     }
   }
@@ -95,7 +95,7 @@ export class SettingsComponent implements OnInit {
           email: response.email,
           firstName: response.firstName,
           lastName: response.lastName,
-          nickName: response.nickName,
+          nickname: response.nickname,
           phoneNumber: response.phoneNumber,
         })
       })
