@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 
@@ -10,7 +11,7 @@ describe('ToDoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ToDoComponent ],
-      providers: [FormBuilder]
+      providers: [FormBuilder, HttpClient, HttpHandler]
     })
     .compileComponents();
   });

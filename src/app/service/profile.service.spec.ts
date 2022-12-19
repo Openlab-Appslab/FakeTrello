@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { ProfileService } from './profile.service';
@@ -6,12 +6,13 @@ import { ProfileService } from './profile.service';
 describe('ProfileService', () => {
   let service: ProfileService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [],
-      declarations: [ ProfileService ],
-      providers: [HttpClient]
-    }).compileComponents();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [HttpClient, HttpHandler]
+
+    });
+    service = TestBed.inject(ProfileService);
+
   });
 
   it('should be created', () => {

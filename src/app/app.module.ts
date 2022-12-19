@@ -39,6 +39,8 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,8 +79,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSliderModule,
     HttpClientModule,
     DragDropModule,
-    ScheduleModule, RecurrenceEditorModule, NgbModule,
-    
+    ScheduleModule, RecurrenceEditorModule, 
+    NgbModule
   ],
   providers: [
     // CookieService,

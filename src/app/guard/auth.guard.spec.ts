@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '../service/auth.service';
 
 import { AuthGuard } from './auth.guard';
@@ -11,10 +12,12 @@ describe('AuthGuard', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [],
-      declarations: [ AuthGuard ],
-      providers: [HttpClient]
-  });
+      providers: [HttpClient, HttpHandler],
+      imports: [RouterTestingModule]
+
+    });
+    guard = TestBed.inject(AuthGuard);
+
   });
 
   it('should be created', () => {
