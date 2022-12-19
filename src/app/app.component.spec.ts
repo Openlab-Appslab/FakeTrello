@@ -10,10 +10,11 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         MatMenuModule,
-        MatMenuModule
+        
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        
       ],
       providers: [
         HttpClient,

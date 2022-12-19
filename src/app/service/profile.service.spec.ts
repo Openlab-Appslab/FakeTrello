@@ -6,9 +6,8 @@ import { ProfileService } from './profile.service';
 describe('ProfileService', () => {
   let service: ProfileService;
 
-  beforeEach(() => {
-    service = TestBed.inject(ProfileService);
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [],
       declarations: [ ProfileService ],
       providers: [HttpClient]
