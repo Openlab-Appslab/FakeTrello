@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
 import { UploadfileService } from 'src/app/service/upload.service';
@@ -19,7 +20,8 @@ export class SettingsComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private fileUploadService: UploadfileService,
-    
+    private modalService: NgbModal,
+
   ) { }
 
   ngOnInit(): void {
@@ -29,9 +31,13 @@ export class SettingsComponent implements OnInit {
   profileUpdateGroup = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    nickName: new FormControl('', Validators.required),
+    nickname: new FormControl('', Validators.required),
     phoneNumber: new FormControl('', Validators.required),
   });
+
+  openDeleteModal(content: any) { //function for opening the delete modal
+    this.modalService.open(content);
+  }
 
   // Variable to store shortLink from api response
   shortLink: string = "";
@@ -72,10 +78,10 @@ export class SettingsComponent implements OnInit {
 
       const firstName = this.profileUpdateGroup.value.firstName;
       const lastName = this.profileUpdateGroup.value.lastName;
-      const nickName = this.profileUpdateGroup.value.nickName;
+      const nickname = this.profileUpdateGroup.value.nickname;
       const phoneNumber = this.profileUpdateGroup.value.phoneNumber;
 
-      this.profileService.addProfileData(firstName, lastName, nickName, phoneNumber)
+      this.profileService.addProfileData(firstName, lastName, nickname, phoneNumber)
         .subscribe(() => this.router.navigate(['/settings'])); 
     }
   }
@@ -89,13 +95,13 @@ export class SettingsComponent implements OnInit {
           email: response.email,
           firstName: response.firstName,
           lastName: response.lastName,
-          nickName: response.nickName,
+          nickname: response.nickname,
           phoneNumber: response.phoneNumber,
         })
       })
   }
 
-  deleteUser(){ //function for deleting the listing by using the listingId
+  deleteUser(){
     this.profileService.deleteUser()
       .subscribe(() => this.router.navigateByUrl('/login'));
   }

@@ -2,6 +2,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITask } from '../model/task';
+import { TaskService } from '../service/task.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-to-do',
@@ -15,15 +17,22 @@ export class ToDoComponent implements OnInit {
   inprogress: ITask[] = [];
   done: ITask[] = [];
   updateIndex!: any;
-  isEditEnabled: boolean = false;
+  isEditEnabled: boolean = false; 
 
   constructor(
     private fb: FormBuilder,
-    
-  ) { }
+    private taskService: TaskService,
+    private modalService: NgbModal,
 
+    ) { }
 
+  openDeleteModal(content: any) { //function for opening the delete modal
+    this.modalService.open(content);
+  }
 
+  openEditModal(content: any) { //function for opening the edit modal
+    this.modalService.open(content);
+  };
 
   addTask() {
     this.tasks.push({
@@ -38,10 +47,28 @@ export class ToDoComponent implements OnInit {
     if (this.toDoForm.value.item == ' ') {
       console.log('empty');
     }
-  else {
-    this.addTask();
+    else {
+      this.addTask();
+    }
   }
-}
+
+  addTaskA(){
+    if(this.toDoForm.valid){
+      console.log(this.toDoForm.value);
+
+      const text = this.toDoForm.value.item;
+      const date = this.toDoForm.value.deadline;
+      console.log(text, date);
+
+      this.taskService.createTask(text, date);
+        // .subscribe(() => this.router.navigate(['/myListings'])); 
+        // .subscribe((response: Task[]) =>
+        // this.tasks.push{
+        //   description = response.text,
+        //   deadline = response.date,
+        // });
+    }
+  }
 
   deleteTask(i: number){
     this.tasks.splice(i, 1);

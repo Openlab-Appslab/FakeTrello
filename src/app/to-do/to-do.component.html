@@ -7,17 +7,17 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Task Name</mat-label> 
                         <input formControlName="item" matInput placeholder="Add Task">
-                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> --> 
                         <mat-hint>add task name</mat-hint>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Task Deadline</mat-label>
                         <input type="date" formControlName="deadline" matInput placeholder="Add Deadline">
-                        <mat-hint>add task deadline</mat-hint>
+                        <mat-hint>add task deadline</mat-hint> 
                     </mat-form-field>
 
-                    <button *ngIf="!isEditEnabled" (click)="dontMakeItemIfEmpty()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button>
+                    <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button> <!--(click)="dontMakeItemIfEmpty()"-->
                     <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Update Task</button>
                 </form>
             </mat-card>
@@ -36,16 +36,57 @@
                               [cdkDropListData]="tasks"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
-                                <div class="box">
-                                    <button mat-icon-button color="primary" (click)="onEdit(item, i)">
-                                        <mat-icon>edit</mat-icon>
-                                    </button>
-                                    <button mat-icon-button color="warn" (click)="deleteTask(i)">
-                                        <mat-icon>delete</mat-icon>
-                                    </button>
+                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
+                                    <div class="box">
+                                        <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)"><!--(click)="editTask(i)"-->  
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        <button mat-icon-button color="warn" (click)="deleteTask(i)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </div>
+
+                                    <ng-template #editTaskModal let-modal>
+
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="modal-basic-title">Edit Task</h4>
+                                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cancel')">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                        
+                                        <div class="modal-body">
+                                            <form>
+                                                <!-- <div class="form-group">
+                                                    <input type="hidden" [(ngModel)]="item.id" name="id" id="listingId" class="form-control">
+                                                </div> -->
+                        
+                                                <div class="form-group">
+                                                    <label for="title">Title</label>
+                                                    <input type="text" class="form-control" id="title" [(ngModel)]="item.description" name="title">
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="description">Description</label>
+                                                    <textarea class="form-control" id="description" style="height: 15rem;" [(ngModel)]="item.description" name="description"></textarea>
+                                                </div>
+                        
+                                                <div class="form-group">
+                                                    <label for="price">Date</label>
+                                                    <input type="number" class="form-control" id="price" [(ngModel)]="item.deadline" name="deadline">
+                                                </div>
+                        
+                                            </form>
+                                        </div>
+                    
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+                                            <button type="button" class="btn btn-primary">Edit</button> <!--(click)="editListing(myListing)"-->
+                                        </div>
+
+                                    </ng-template>
+
                                 </div>
-                              </div>
                             </div>
                         </div>
                     </div>

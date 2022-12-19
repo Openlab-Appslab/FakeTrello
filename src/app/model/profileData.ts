@@ -3,6 +3,6 @@ export interface ProfileData {
     email: string;
     firstName: string;
     lastName: string;
-    nickName: string;
+    nickname: string;
     phoneNumber: number;
 }
