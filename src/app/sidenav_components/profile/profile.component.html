@@ -1,0 +1,53 @@
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100" *ngIf="profileData">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-9 col-xl-7">
+          <div class="card">
+            <div class="rounded-top text-white d-flex flex-row" id="profile_background">
+              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                  style="width: 150px; z-index: 1">
+                <button type="button" class="btn btn-outline-light" data-mdb-ripple-color="bg-light"
+                  style="z-index: 1; margin-bottom: 1rem;"
+                  routerLink="/settings">
+                  Edit profile
+                </button>
+              </div>
+              <div class="ms-3" style="margin-top: 130px;">
+                <h5>{{profileData.firstName}} {{profileData.lastName}}</h5>
+                <p>{{profileData.email}}</p>
+              </div>
+            </div>
+            <div class="p-4 text-black" style="background-color: #f8f9fa;">
+              <div class="d-flex justify-content-end text-center py-1" id="user_stats">
+                <div>
+                  <p class="mb-1 h5">253</p>
+                  <p class="small text-muted mb-0">Tasks</p>
+                </div>
+                <div class="px-3">
+                  <p class="mb-1 h5">1026</p>
+                  <p class="small text-muted mb-0">Tasks completed</p>
+                </div>
+                <div>
+                  <p class="mb-1 h5">3</p>
+                  <p class="small text-muted mb-0">Workplaces</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-4 text-black">
+              <div class="mb-5">
+                <p class="lead fw-normal mb-1">About</p>
+                <div class="p-4" style="background-color: #f8f9fa;">
+                  <p class="font-italic mb-1" id="user_data"><b>Name:</b> {{profileData.firstName}} {{profileData.lastName}}</p>
+                  <p class="font-italic mb-1" id="user_data"><b>Nickname:</b> {{profileData.nickname}}</p>
+                  <p class="font-italic mb-0" id="user_data"><b>E-Mail:</b> {{profileData.email}}</p>
+                  <p class="font-italic mb-0" id="user_data"><b>Phonenumber:</b> {{profileData.phoneNumber}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+#profile_background{
+    background-image: linear-gradient(to right, #d8425e , #F27D92);
+}
+
+#user_data{
+    font-size: medium;
+    font-weight: 400;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    #user_stats div p{
+        font-size: 1em;
+
+    }
+}

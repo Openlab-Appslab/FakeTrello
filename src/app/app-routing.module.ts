@@ -12,6 +12,7 @@ import { SettingsComponent } from './sidenav_components/settings/settings.compon
 import { ToDoComponent } from './to-do/to-do.component';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
+import { ProfileComponent } from './sidenav_components/profile/profile.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
@@ -21,10 +22,12 @@ const routes: Routes = [
   { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
   { path: "settings", component: SettingsComponent, canActivate: [AuthGuard]},
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "members", component: MembersComponent, canActivate: [AuthGuard]},
   { path: "todo", component: ToDoComponent, canActivate: [AuthGuard]},
   { path: "pomodoro", component: PomodoroComponent},
   { path: "timeTable", component: TimetableComponent },
+
 ];
 
 @NgModule({
