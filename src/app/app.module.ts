@@ -39,6 +39,9 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './sidenav_components/profile/profile.component';
+import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
+import { VerifyDialogComponent } from './security/verify-dialog/verify-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { ProfileComponent } from './sidenav_components/profile/profile.component
     PomodoroComponent,
     TimetableComponent,
     ProfileComponent,
+    VerifyEmailComponent,
+    VerifyDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -80,6 +86,7 @@ import { ProfileComponent } from './sidenav_components/profile/profile.component
     HttpClientModule,
     DragDropModule,
     ScheduleModule, RecurrenceEditorModule, NgbModule,
+    MatDialogModule,
     
   ],
   providers: [
