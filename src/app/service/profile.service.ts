@@ -23,7 +23,7 @@ export class ProfileService {
 
   addProfileData(firstName: string, lastName: string, nickname: string, phoneNumber: number): Observable<any>{
     console.log(firstName, lastName, nickname, phoneNumber);
-    console.log("service works");
+    console.log("addProfileData");
 
     return this.http.put('http://localhost:8080/editUser', {
       firstName,
@@ -38,7 +38,6 @@ export class ProfileService {
   }
 
   deleteUser(): Observable<void>{
-    return this.http.delete<void>('http://localhost:8080/deleteUser');
-    
+    return this.http.delete<void>('http://localhost:8080/deleteUser');   
   }
 }
