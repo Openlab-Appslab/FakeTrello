@@ -87,14 +87,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSliderModule,
     HttpClientModule,
     DragDropModule,
-<<<<<<< HEAD
     ScheduleModule, RecurrenceEditorModule, NgbModule,
     MatDialogModule,
     
-=======
-    ScheduleModule, RecurrenceEditorModule, 
-    NgbModule
->>>>>>> f5cee71f1e6ef875cc57b8bb59adbdf6a352a74e
   ],
   providers: [
     // CookieService,

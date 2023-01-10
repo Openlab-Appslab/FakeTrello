@@ -85,6 +85,4 @@ export class AuthService {
     showRegisterVerifyialog(): void {
       this.dialog.open(VerifyDialogComponent);
     }
-
-    
 }
