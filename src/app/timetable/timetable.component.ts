@@ -24,6 +24,10 @@ export class TimetableComponent implements OnInit {
   //   dataSource: this.eventData, 
   // }
 
+  isSingleClick: boolean = true;
+
+  
+
   constructor() { }
 
   ngOnInit(): void {
