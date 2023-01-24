@@ -12,11 +12,12 @@ body{
 }
 
 .wrapper{
-    padding: 30px 50px;
+    padding: 30px;
     border: 1px solid #ddd;
     border-radius: 15px;
     margin: 10px auto;
     max-width: 600px;
+    height: 650px;
 }
 h2{
     font-weight: 500;
@@ -104,5 +105,11 @@ select:focus{
     }
     #deactivate{
         line-height: 18px;
+    }
+}
+
+@media(max-width: 768px){
+    .wrapper{
+        height: 825px;
     }
 }
