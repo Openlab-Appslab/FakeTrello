@@ -39,7 +39,13 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './sidenav_components/profile/profile.component';
+<<<<<<< HEAD
 import { ResourcesComponent } from './resources/resources.component';
+=======
+import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
+import { VerifyDialogComponent } from './security/verify-dialog/verify-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+>>>>>>> b8995bc195a358c906f0b188550accaace1ecc30
 
 
 
@@ -58,7 +64,13 @@ import { ResourcesComponent } from './resources/resources.component';
     PomodoroComponent,
     TimetableComponent,
     ProfileComponent,
+<<<<<<< HEAD
     ResourcesComponent,
+=======
+    VerifyEmailComponent,
+    VerifyDialogComponent,
+
+>>>>>>> b8995bc195a358c906f0b188550accaace1ecc30
   ],
   imports: [
     BrowserModule,
@@ -83,8 +95,9 @@ import { ResourcesComponent } from './resources/resources.component';
     MatSliderModule,
     HttpClientModule,
     DragDropModule,
-    ScheduleModule, RecurrenceEditorModule, 
-    NgbModule
+    ScheduleModule, RecurrenceEditorModule, NgbModule,
+    MatDialogModule,
+    
   ],
   providers: [
     // CookieService,

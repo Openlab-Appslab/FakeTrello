@@ -13,12 +13,16 @@ import { ToDoComponent } from './to-do/to-do.component';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { ProfileComponent } from './sidenav_components/profile/profile.component';
+import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
   { path: "basicRoute", component: MainComponent },
+
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "verifyEmail/:code", component: VerifyEmailComponent },
+
   { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
   { path: "settings", component: SettingsComponent, canActivate: [AuthGuard]},
