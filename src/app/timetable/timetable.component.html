@@ -46,9 +46,9 @@
         <tr>
             <td align="center" height="50">
                 <b>Monday</b></td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">Che</td>
+            <td *ngIf="monday" align="center" height="50">{{monday[0]}}</td>
+            <td *ngIf="monday" align="center" height="50">{{monday[1]}}</td>
+            <td *ngIf="monday" align="center" height="50">{{monday[2]}}</td>
             <td rowspan="6" align="center" height="50">
                 <h2>L<br>U<br>N<br>C<br>H</h2>
             </td>
