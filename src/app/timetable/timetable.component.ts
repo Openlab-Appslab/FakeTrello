@@ -41,6 +41,11 @@ export class TimetableComponent implements OnInit {
   thursday: string[] = ['', '', '', '', '', '', ''];
   friday: string[] = ['', '', '', '', '', '', ''];
 
+
+  inputVisible = false;
+  inputValue: string ='';
+
+
 }
 
 

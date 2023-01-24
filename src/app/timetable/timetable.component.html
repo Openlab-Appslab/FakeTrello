@@ -63,7 +63,8 @@
             <td colspan="3" align="center"
                 height="50">LAB
             </td>
-            <td align="center" height="50">Eng</td>
+            <td (dblclick)="inputVisible = !inputVisible"><input *ngIf="inputVisible" [(ngModel)]="inputValue" (keyup.enter)="inputVisible = false">
+                <p *ngIf="!inputVisible">{{inputValue}}</p></td>
             <td align="center" height="50">Che</td>
             <td align="center" height="50">Mat</td>
             <td align="center" height="50">SPORTS</td>

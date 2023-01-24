@@ -19,3 +19,10 @@ td{
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+input[ngIf="inputVisible"]{
+    display:block;
+  }
+  input[ngIf="!inputVisible"]{
+    display:none;
+  }
