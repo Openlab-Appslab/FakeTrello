@@ -9,3 +9,13 @@
     justify-content: center;
 }
 
+td{
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #757575;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
