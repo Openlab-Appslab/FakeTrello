@@ -35,12 +35,23 @@ export class ToDoComponent implements OnInit {
   };
 
   addTask() {
-    this.tasks.push({
-      description: this.toDoForm.value.item, 
-      deadline: this.toDoForm.value.deadline,
-      done: false
-    });
-    this.toDoForm.reset();
+    // this.tasks.push({
+    //   description: this.toDoForm.value.item, 
+    //   deadline: this.toDoForm.value.deadline,
+    //   done: false
+    // });
+    // this.toDoForm.reset();
+
+    this.taskService.createTask(this.toDoForm.value.item, this.toDoForm.value.deadline)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.tasks.push({
+          description: response.text,
+          deadline: response.date,
+          done: false
+        });
+        this.toDoForm.reset();
+      });
   }
 
   dontMakeItemIfEmpty() {
@@ -117,5 +128,4 @@ export class ToDoComponent implements OnInit {
       deadline: ['',]
     });
   }
-
 }
