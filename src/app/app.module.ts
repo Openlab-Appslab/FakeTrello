@@ -39,6 +39,7 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './sidenav_components/profile/profile.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 
 
@@ -57,6 +58,7 @@ import { ProfileComponent } from './sidenav_components/profile/profile.component
     PomodoroComponent,
     TimetableComponent,
     ProfileComponent,
+    ResourcesComponent,
   ],
   imports: [
     BrowserModule,
