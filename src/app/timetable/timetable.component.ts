@@ -35,13 +35,13 @@ export class TimetableComponent implements OnInit {
 
   public showHeaderBar: Boolean = false;
 
-  
+  monday: string[] = ['Mat', 'Mat', 'Mat', '', '', '', ''];
+  tuesday: string[] = ['', '', '', '', '', '', ''];
+  wednesday: string[] = ['', '', '', '', '', '', ''];
+  thursday: string[] = ['', '', '', '', '', '', ''];
+  friday: string[] = ['', '', '', '', '', '', ''];
 
 }
 
-let monday: string[] = ['', '', '', '', '', '', ''];
-let tuesday: string[] = ['', '', '', '', '', '', ''];
-let wednesday: string[] = ['', '', '', '', '', '', ''];
-let thursday: string[] = ['', '', '', '', '', '', ''];
-let friday: string[] = ['', '', '', '', '', '', ''];
+
 
