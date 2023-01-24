@@ -43,6 +43,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
 import { VerifyDialogComponent } from './security/verify-dialog/verify-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TeamComponent } from './team/team.component';
 
 
 
@@ -65,6 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ResourcesComponent,
     VerifyEmailComponent,
     VerifyDialogComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,

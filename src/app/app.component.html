@@ -37,23 +37,25 @@
             
             <button 
                 mat-menu-item
-                routerLink="resources">
+                routerLink="resources!">
                     <mat-icon class="mat_icon_dropdown">code</mat-icon>
                         <span routerLink="resources">Recources</span>
             </button>
             <button 
-                mat-menu-item>
+                mat-menu-item
+                href="https://github.com/Openlab-Appslab/FakeTrello"
+                >
                     <mat-icon class="mat_icon_dropdown">backup</mat-icon>
                     <a class="repo" target="_blank" href="https://github.com/Openlab-Appslab/FakeTrello">
-                        <span routerLink="register">GitHub Repo</span>
+                        <span href="https://github.com/Openlab-Appslab/FakeTrello">GitHub Repo</span>
                     </a>
             </button>
 
             <button 
                 mat-menu-item
-                routerLink="profile">
+                routerLink="team">
                     <mat-icon class="mat_icon_dropdown">people</mat-icon>
-                        <span>Our Team</span>
+                        <span routerLink="team" >Our Team</span>
             </button>
         </mat-menu>
     </div>

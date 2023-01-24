@@ -14,6 +14,8 @@ import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { ProfileComponent } from './sidenav_components/profile/profile.component';
 import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
+import { ResourcesComponent } from './resources/resources.component';
+import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
@@ -31,6 +33,9 @@ const routes: Routes = [
   { path: "todo", component: ToDoComponent, canActivate: [AuthGuard]},
   { path: "pomodoro", component: PomodoroComponent},
   { path: "timeTable", component: TimetableComponent },
+  { path: "resources", component: ResourcesComponent },
+  { path: "team", component: TeamComponent }
+
 
 ];
 
