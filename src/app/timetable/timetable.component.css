@@ -18,6 +18,7 @@ td{
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    max-width: 90;
 }
 
 input[ngIf="inputVisible"]{
@@ -26,3 +27,19 @@ input[ngIf="inputVisible"]{
   input[ngIf="!inputVisible"]{
     display:none;
   }
+
+input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #757575;
+    font-weight: 500;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}

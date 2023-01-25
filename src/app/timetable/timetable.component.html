@@ -1,112 +1,533 @@
-
 <!DOCTYPE html>
 <html>
- 
-<body>
+  <body>
     <table class="timetable" border="5" cellspacing="0" align="center">
-        <!--<caption>Timetable</caption>-->
-        <tr>
-            <td align="center" height="50"
-                width="100"><br>
-                <b>Day/Period</b><br>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>I<br>9:30-10:20</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>II<br>10:20-11:10</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>III<br>11:10-12:00</b>
-            </td>
-            <td  class="none_border" align="center" height="50"
-                width="100">
-                <b>12:00-12:40</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>IV<br>12:40-1:30</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>V<br>1:30-2:20</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>VI<br>2:20-3:10</b>
-            </td>
-            <td align="center" height="50"
-                width="100">
-                <b>VII<br>3:10-4:00</b>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Monday</b></td>
-            <td *ngIf="monday" align="center" height="50">{{monday[0]}}</td>
-            <td *ngIf="monday" align="center" height="50">{{monday[1]}}</td>
-            <td *ngIf="monday" align="center" height="50">{{monday[2]}}</td>
-            <td rowspan="6" align="center" height="50">
-                <h2>L<br>U<br>N<br>C<br>H</h2>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB</td>
-            <td align="center" height="50">Phy</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Tuesday</b>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td (dblclick)="inputVisible = !inputVisible"><input *ngIf="inputVisible" [(ngModel)]="inputValue" (keyup.enter)="inputVisible = false">
-                <p *ngIf="!inputVisible">{{inputValue}}</p></td>
-            <td align="center" height="50">Che</td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">SPORTS</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Wednesday</b>
-            </td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">phy</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td colspan="3" align="center"
-                height="50">LIBRARY
-            </td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Thursday</b>
-            </td>
-            <td align="center" height="50">Phy</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Che</td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td align="center" height="50">Mat</td>
-        </tr>
-        <tr>
-            <td align="center" height="50">
-                <b>Friday</b>
-            </td>
-            <td colspan="3" align="center"
-                height="50">LAB
-            </td>
-            <td align="center" height="50">Mat</td>
-            <td align="center" height="50">Che</td>
-            <td align="center" height="50">Eng</td>
-            <td align="center" height="50">Phy</td>
-        </tr>
-    
+      <!--<caption>Timetable</caption>-->
+      <tr>
+        <td align="center" height="50" width="100">
+          <br />
+          <b>Day/Period</b><br />
+        </td>
+        <td align="center" height="50" width="100">
+          <b>I<br />9:30-10:20</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>II<br />10:20-11:10</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>III<br />11:10-12:00</b>
+        </td>
+        <td class="none_border" align="center" height="50" width="100">
+          <b>12:00-12:40</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>IV<br />12:40-1:30</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>V<br />1:30-2:20</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>VI<br />2:20-3:10</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>VII<br />3:10-4:00</b>
+        </td>
+        <td align="center" height="50" width="100">
+          <b>VIII<br />4:00-4:50</b>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center" height="50">
+          <b>Monday</b>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon1"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon1 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon2"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon2 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon3"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon3 }}</p>
+        </td>
+        <td rowspan="6" align="center" height="50">
+          <h2>L<br />U<br />N<br />C<br />H</h2>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon4"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon4 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon5"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon5 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon6"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon6 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon7"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon7 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueMon8"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueMon8 }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" height="50">
+          <b>Tuesday</b>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue1"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue1 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue2"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue2 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue3"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue3 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue4"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue4 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue5"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue5 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue6"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue6 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue7"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue7 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueTue8"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueTue8 }}</p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" height="50">
+          <b>Wednesday</b>
+        </td>
+        
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed1" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed1 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed2" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed2 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed3" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed3 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed4" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed4 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed5" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed5 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed6" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed6 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed7" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed7 }}</p>
+        </td>
+        <td 
+          align="center" 
+          height="50" 
+          (dblclick)="inputVisible = !inputVisible">
+          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed8" (keyup.enter)="inputVisible = false" />
+          <p *ngIf="!inputVisible">{{ inputValueWed8 }}</p>
+        </td>
+
+
+      </tr>
+      <tr>
+        <td align="center" height="50">
+          <b>Thursday</b>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu1"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu1 }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu2"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu2 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu3"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu3 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu4"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu4 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu5"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu5 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu6"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu6 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu7"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu7 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueThu8"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueThu8 }}</p>
+        </td>
+
+
+      </tr>
+      <tr>
+        <td align="center" height="50">
+          <b>Friday</b>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri1"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri1 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri2"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri2 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri3"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri3 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri4"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri4 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri5"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri5 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri6"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri6 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri7"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri7 }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="inputValueFri8"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ inputValueFri8 }}</p>
+        </td>
+      </tr>
     </table>
-</body>
- 
+  </body>
 </html>
