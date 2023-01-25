@@ -10,6 +10,9 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  hide = true;
+  hide2= true;
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -19,14 +22,14 @@ export class RegisterComponent implements OnInit {
   registerGroup = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    // repeatPassword: new FormControl('', Validators.required)
+    repeatPassword: new FormControl('', Validators.required)
   });
 
   test(){
     const email = this.registerGroup.value.email;
     const password = this.registerGroup.value.password;
-    // const repeatPassword = this.registerGroup.value.repeatPassword;
-    console.log(email, password);
+    const repeatPassword = this.registerGroup.value.repeatPassword;
+    console.log(email, password, repeatPassword);
   }
 
   register() {
@@ -36,42 +39,20 @@ export class RegisterComponent implements OnInit {
       console.log(this.registerGroup.value);
     
       this.authService.register(email, password)  
-        .subscribe(() => this.router.navigateByUrl('/login'));
+        // .subscribe(() => this.router.navigateByUrl('/login'));
+        .subscribe(() => this.authService.showRegisterVerifyialog());
     }
   }
 
-
+  passwordsMatch(){
+    if(this.registerGroup.value.password === this.registerGroup.value.repeatPassword){
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   ngOnInit(): void {
   }
 }
-//   profileForm = new FormGroup(
-//     {
-//       password: new FormControl('', [Validators.required]),
-//       confirmPassword: new FormControl('', [Validators.required]),
-//     },
-//     [CustomValidators.MatchValidator('password', 'confirmPassword')]
-//   );
-
-//   get passwordMatchError() {
-//     return (
-//       console.log("passwordMatchError"),
-//       this.profileForm.getError('mismatch') &&
-//       this.profileForm.get('confirmPassword')?.touched
-//     );
-//   }
-
-// }
-
-// export class CustomValidators {
-//   static MatchValidator(source: string, target: string): ValidatorFn {
-//     return (control: AbstractControl): ValidationErrors | null => {
-//       const sourceCtrl = control.get(source);
-//       const targetCtrl = control.get(target);
-
-//       return sourceCtrl && targetCtrl && sourceCtrl.value !== targetCtrl.value
-//         ? { mismatch: true }
-//         : null;
-//     };
-//   }
 
