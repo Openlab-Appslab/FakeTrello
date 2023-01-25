@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ITask } from '../model/task';
 
 const httpOptions = {
   headers: new HttpHeaders({ 
@@ -28,7 +29,7 @@ export class TaskService {
     }, httpOptions);
   }
 
-  getAllUserTasks(): Observable<Task[]>{
-    return this.http.get<Task[]>('http://localhost:8080/getAllUsersTasks');
+  getAllUserTasks(): Observable<ITask[]>{
+    return this.http.get<ITask[]>('http://localhost:8080/getAllUsersTasks');
   }
 }

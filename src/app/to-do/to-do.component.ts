@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITask } from '../model/task';
 import { TaskService } from '../service/task.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-to-do',
@@ -26,32 +27,33 @@ export class ToDoComponent implements OnInit {
 
     ) { }
 
-  openDeleteModal(content: any) { //function for opening the delete modal
+  openDeleteModal(content: any) {
     this.modalService.open(content);
   }
 
-  openEditModal(content: any) { //function for opening the edit modal
+  openEditModal(content: any) {
     this.modalService.open(content);
   };
 
   addTask() {
-    // this.tasks.push({
-    //   description: this.toDoForm.value.item, 
-    //   deadline: this.toDoForm.value.deadline,
-    //   done: false
-    // });
-    // this.toDoForm.reset();
-
+    console.log(this.toDoForm.value);
     this.taskService.createTask(this.toDoForm.value.item, this.toDoForm.value.deadline)
       .subscribe((response: any) => {
         console.log(response);
-        this.tasks.push({
-          description: response.text,
-          deadline: response.date,
-          done: false
-        });
         this.toDoForm.reset();
       });
+  }
+
+  public getAllUserTasks(): void{ 
+    this.taskService.getAllUserTasks().subscribe( 
+      (response: ITask[]) => {
+        this.tasks = response;
+        console.log(this.tasks);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   dontMakeItemIfEmpty() {
@@ -60,24 +62,6 @@ export class ToDoComponent implements OnInit {
     }
     else {
       this.addTask();
-    }
-  }
-
-  addTaskA(){
-    if(this.toDoForm.valid){
-      console.log(this.toDoForm.value);
-
-      const text = this.toDoForm.value.item;
-      const date = this.toDoForm.value.deadline;
-      console.log(text, date);
-
-      this.taskService.createTask(text, date);
-        // .subscribe(() => this.router.navigate(['/myListings'])); 
-        // .subscribe((response: Task[]) =>
-        // this.tasks.push{
-        //   description = response.text,
-        //   deadline = response.date,
-        // });
     }
   }
 
@@ -94,14 +78,14 @@ export class ToDoComponent implements OnInit {
   }
 
   onEdit(item: ITask, i: number){
-    this.toDoForm.controls['item'].setValue(item.description);
+    this.toDoForm.controls['item'].setValue(item.text);
     this.toDoForm.controls['deadline'].setValue(item.deadline);
     this.updateIndex = i;
     this.isEditEnabled = true;
   }
 
   updateTask(){
-    this.tasks[this.updateIndex].description = this.toDoForm.value.item;
+    this.tasks[this.updateIndex].text = this.toDoForm.value.item;
     this.tasks[this.updateIndex].deadline = this.toDoForm.value.deadline;
     this.tasks[this.updateIndex].done = false;
     this.toDoForm.reset();
@@ -123,6 +107,9 @@ export class ToDoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.getAllUserTasks();
+
     this.toDoForm = this.fb.group({
       item : ['', Validators.required],
       deadline: ['',]

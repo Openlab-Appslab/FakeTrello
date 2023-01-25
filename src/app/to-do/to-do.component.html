@@ -36,7 +36,7 @@
                               [cdkDropListData]="tasks"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
+                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}}
                                     <div class="box">
                                         <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)"><!--(click)="editTask(i)"-->  
                                             <mat-icon>edit</mat-icon>
@@ -63,12 +63,12 @@
                         
                                                 <div class="form-group">
                                                     <label for="title">Title</label>
-                                                    <input type="text" class="form-control" id="title" [(ngModel)]="item.description" name="title">
+                                                    <input type="text" class="form-control" id="title" [(ngModel)]="item.text" name="title">
                                                 </div>
                         
                                                 <div class="form-group">
                                                     <label for="description">Description</label>
-                                                    <textarea class="form-control" id="description" style="height: 15rem;" [(ngModel)]="item.description" name="description"></textarea>
+                                                    <textarea class="form-control" id="description" style="height: 15rem;" [(ngModel)]="item.text" name="description"></textarea>
                                                 </div>
                         
                                                 <div class="form-group">
@@ -100,7 +100,7 @@
                               [cdkDropListData]="inprogress"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}}
+                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}}
                                 <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
@@ -118,7 +118,7 @@
                               [cdkDropListData]="done"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.description}} <br> {{item.deadline}} 
+                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}} 
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteDoneTask(i)">
                                         <mat-icon>delete</mat-icon>
