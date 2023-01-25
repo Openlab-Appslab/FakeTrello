@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "verifyEmail/:code", component: VerifyEmailComponent },
+  // { path: "verifyEmail", component: VerifyEmailComponent },
 
   { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
