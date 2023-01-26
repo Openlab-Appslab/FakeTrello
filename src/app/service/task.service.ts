@@ -32,4 +32,9 @@ export class TaskService {
   getAllUserTasks(): Observable<ITask[]>{
     return this.http.get<ITask[]>('http://localhost:8080/getAllUsersTasks');
   }
+
+  public editTask(task: ITask): Observable<ITask> {
+    console.log(task, "send to backend task edit");
+    return this.http.put<ITask>('http://localhost:8080/editTask', task);
+  }
 }

@@ -40,6 +40,7 @@ export class ToDoComponent implements OnInit {
     this.taskService.createTask(this.toDoForm.value.item, this.toDoForm.value.deadline)
       .subscribe((response: any) => {
         console.log(response);
+        this.getAllUserTasks();
         this.toDoForm.reset();
       });
   }
@@ -48,12 +49,26 @@ export class ToDoComponent implements OnInit {
     this.taskService.getAllUserTasks().subscribe( 
       (response: ITask[]) => {
         this.tasks = response;
+        this.toDoForm.reset();
         console.log(this.tasks);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
+  }
+
+  editTask(taskModel: ITask){ 
+    let cancelBtn = document.getElementById('edit_task_cancel');
+    if(cancelBtn){
+       cancelBtn.click();
+    }
+    this.taskService.editTask(taskModel).subscribe(
+      (response => {
+        console.log('listing edited', response);
+        this.getAllUserTasks();
+      })
+    )
   }
 
   dontMakeItemIfEmpty() {
