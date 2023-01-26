@@ -5,6 +5,7 @@ import { ITask } from '../model/task';
 import { TaskService } from '../service/task.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-to-do',
@@ -24,6 +25,7 @@ export class ToDoComponent implements OnInit {
     private fb: FormBuilder,
     private taskService: TaskService,
     private modalService: NgbModal,
+    private cdr: ChangeDetectorRef
 
     ) { }
 
@@ -71,6 +73,17 @@ export class ToDoComponent implements OnInit {
     )
   }
 
+  deleteTask(taskId: number){ //function for deleting the listing by using the listingId
+    
+    this.taskService.deleteTask(taskId).subscribe(
+      (response: void) => {
+        console.log('task deleted');
+        this.getAllUserTasks();
+        this.done = this.tasks.filter(task => task.done);
+      }
+    );
+  }
+
   dontMakeItemIfEmpty() {
     if (this.toDoForm.value.item == ' ') {
       console.log('empty');
@@ -80,9 +93,9 @@ export class ToDoComponent implements OnInit {
     }
   }
 
-  deleteTask(i: number){
-    this.tasks.splice(i, 1);
-  }
+  // deleteTask(i: number){
+  //   this.tasks.splice(i, 1);
+  // }
 
   deleteInProgressTask(i: number){
     this.inprogress.splice(i, 1);
@@ -92,21 +105,21 @@ export class ToDoComponent implements OnInit {
     this.done.splice(i, 1);
   }
 
-  onEdit(item: ITask, i: number){
-    this.toDoForm.controls['item'].setValue(item.text);
-    this.toDoForm.controls['deadline'].setValue(item.deadline);
-    this.updateIndex = i;
-    this.isEditEnabled = true;
-  }
+  // onEdit(item: ITask, i: number){
+  //   this.toDoForm.controls['item'].setValue(item.text);
+  //   this.toDoForm.controls['deadline'].setValue(item.deadline);
+  //   this.updateIndex = i;
+  //   this.isEditEnabled = true;
+  // }
 
-  updateTask(){
-    this.tasks[this.updateIndex].text = this.toDoForm.value.item;
-    this.tasks[this.updateIndex].deadline = this.toDoForm.value.deadline;
-    this.tasks[this.updateIndex].done = false;
-    this.toDoForm.reset();
-    this.updateIndex = undefined;
-    this.isEditEnabled = false;
-  }
+  // updateTask(){
+  //   this.tasks[this.updateIndex].text = this.toDoForm.value.item;
+  //   this.tasks[this.updateIndex].deadline = this.toDoForm.value.deadline;
+  //   this.tasks[this.updateIndex].done = false;
+  //   this.toDoForm.reset();
+  //   this.updateIndex = undefined;
+  //   this.isEditEnabled = false;
+  // }
 
   drop(event: CdkDragDrop<ITask[]>) {
     if (event.previousContainer === event.container) {

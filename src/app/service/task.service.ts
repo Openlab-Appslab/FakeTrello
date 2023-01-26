@@ -37,4 +37,8 @@ export class TaskService {
     console.log(task, "send to backend task edit");
     return this.http.put<ITask>('http://localhost:8080/editTask', task);
   }
+
+  deleteTask(taskId: number): Observable<void>{
+    return this.http.delete<void>(`http://localhost:8080/deleteTask/${taskId}`);
+  }
 }
