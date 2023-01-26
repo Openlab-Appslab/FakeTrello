@@ -93,34 +93,6 @@ export class ToDoComponent implements OnInit {
     }
   }
 
-  // deleteTask(i: number){
-  //   this.tasks.splice(i, 1);
-  // }
-
-  deleteInProgressTask(i: number){
-    this.inprogress.splice(i, 1);
-  }
-
-  deleteDoneTask(i: number){
-    this.done.splice(i, 1);
-  }
-
-  // onEdit(item: ITask, i: number){
-  //   this.toDoForm.controls['item'].setValue(item.text);
-  //   this.toDoForm.controls['deadline'].setValue(item.deadline);
-  //   this.updateIndex = i;
-  //   this.isEditEnabled = true;
-  // }
-
-  // updateTask(){
-  //   this.tasks[this.updateIndex].text = this.toDoForm.value.item;
-  //   this.tasks[this.updateIndex].deadline = this.toDoForm.value.deadline;
-  //   this.tasks[this.updateIndex].done = false;
-  //   this.toDoForm.reset();
-  //   this.updateIndex = undefined;
-  //   this.isEditEnabled = false;
-  // }
-
   drop(event: CdkDragDrop<ITask[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

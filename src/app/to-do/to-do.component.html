@@ -41,7 +41,7 @@
                                         <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)"><!--(click)="editTask(i)"-->  
                                             <mat-icon>edit</mat-icon>
                                         </button>
-                                        <button mat-icon-button color="warn" (click)="deleteTask(i)">
+                                        <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
                                             <mat-icon>delete</mat-icon>
                                         </button>
                                     </div>
@@ -101,7 +101,7 @@
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
                               <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}}
-                                <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)">
+                                <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                               </div>
