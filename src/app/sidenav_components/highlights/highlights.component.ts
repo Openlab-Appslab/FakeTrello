@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-highlights',
   templateUrl: './highlights.component.html',
-  styleUrls: ['./highlights.component.css']
+  styleUrls: ['./highlights.component.scss']
 })
 export class HighlightsComponent implements OnInit {
 

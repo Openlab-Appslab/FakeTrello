@@ -7,7 +7,7 @@ import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
   selector: 'app-timetable',
   // template: '<ejs-schedule [currentView]="setView" [showHeaderBar]="showHeaderBar" [eventSettings]="eventObject" [selectedDate]="setDate"></ejs-schedule>',
   templateUrl: './timetable.component.html',
-  styleUrls: ['./timetable.component.css']
+  styleUrls: ['./timetable.component.scss']
 })
 export class TimetableComponent implements OnInit {
 

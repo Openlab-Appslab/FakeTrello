@@ -16,6 +16,7 @@ import { ProfileComponent } from './sidenav_components/profile/profile.component
 import { VerifyEmailComponent } from './security/verify-email/verify-email.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { TeamComponent } from './team/team.component';
+import { SecretComponent } from './secret/secret.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
@@ -24,7 +25,6 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "verifyEmail/:code", component: VerifyEmailComponent },
-  // { path: "verifyEmail", component: VerifyEmailComponent },
 
   { path: "boards", component: BoardsComponent, canActivate: [AuthGuard] },
   { path: "highlights", component: HighlightsComponent, canActivate: [AuthGuard] },
@@ -35,7 +35,8 @@ const routes: Routes = [
   { path: "pomodoro", component: PomodoroComponent},
   { path: "timeTable", component: TimetableComponent },
   { path: "resources", component: ResourcesComponent },
-  { path: "team", component: TeamComponent }
+  { path: "team", component: TeamComponent },
+  { path: "secret", component: SecretComponent },
 
 
 ];
