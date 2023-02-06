@@ -25,7 +25,6 @@ export class ToDoComponent implements OnInit {
     private fb: FormBuilder,
     private taskService: TaskService,
     private modalService: NgbModal,
-    private cdr: ChangeDetectorRef
 
     ) { }
 

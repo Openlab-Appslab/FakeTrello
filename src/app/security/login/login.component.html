@@ -22,7 +22,15 @@
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" formControlName="password" required/>
+                        
+                        <div class="input-group">
+                          <input type="password" id="form3Example4c" [type]="hide ? 'password' : 'text'" text="password" class="form-control" formControlName="password" required/>
+                            <div class="input-group-append">
+                              <button id="eye" mat-icon-button type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon class="eye_icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                            </div>
+                        </div>
                         <label class="form-label" for="form3Example4c">Password</label>
                       </div>
                     </div>

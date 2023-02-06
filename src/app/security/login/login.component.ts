@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   responseData: any;
   componentName = "test";
 
+  hide = true;
+
   constructor(
     private readonly router: Router,
     private authService: AuthService,

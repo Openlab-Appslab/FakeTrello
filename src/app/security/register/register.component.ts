@@ -39,7 +39,6 @@ export class RegisterComponent implements OnInit {
       console.log(this.registerGroup.value);
     
       this.authService.register(email, password)  
-        // .subscribe(() => this.router.navigateByUrl('/login'));
         .subscribe(() => this.authService.showRegisterVerifyialog());
     }
   }
