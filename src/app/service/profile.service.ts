@@ -40,4 +40,11 @@ export class ProfileService {
   deleteUser(): Observable<void>{
     return this.http.delete<void>('http://localhost:8080/deleteUser');   
   }
+
+  profilePictureUpload(image: string, userId: number): Observable<any>{
+    return this.http.put('http://localhost:8080/uploadProfilePicture', {
+      userId,
+      image,
+    }, httpOptions);
+  }
 }

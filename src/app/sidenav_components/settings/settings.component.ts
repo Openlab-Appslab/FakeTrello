@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
-import { UploadfileService } from 'src/app/service/upload.service';
 
 @Component({
   selector: 'app-settings',
@@ -13,14 +12,13 @@ import { UploadfileService } from 'src/app/service/upload.service';
 })
 export class SettingsComponent implements OnInit {
 
-  previews: any;
   public profileData: ProfileData;
 
   constructor(
     private router: Router,
     private profileService: ProfileService,
-    private fileUploadService: UploadfileService,
     private modalService: NgbModal,
+    private location: Location,
 
   ) { }
 
@@ -39,36 +37,30 @@ export class SettingsComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  // Variable to store shortLink from api response
-  shortLink: string = "";
-  loading: boolean = false; // Flag variable
-  file: File; // Variable to store file
-  // file: File = null; 
+  imageTest: string = '';
 
-  // On file Select
-  onChange(event: any) {
-    this.file = event.target.files[0];
-}
-
-// OnClick of button Upload
-  onUpload() {
-    this.loading = !this.loading;
-    console.log(this.file);
-    this.fileUploadService.upload(this.file).subscribe(
-        (event: any) => {
-            if (typeof (event) === 'object') {
-
-                // Short link via api response
-                this.shortLink = event.link;
-
-                this.loading = false; // Flag variable 
-            }
-        }
-    );
+onFileChange(event: any) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageTest = reader.result as string;
+      console.log(this.imageTest);
+    };
+    reader.readAsDataURL(event.target.files[0]);
   }
 
-  test(){
-    console.log("funguj");
+  updateProfilePicture(){
+    const userId = this.profileData.id;
+    const image = this.imageTest;
+    console.log(this.profileData.id);
+    console.log(this.imageTest);
+
+    this.profileService.profilePictureUpload(image, userId).subscribe(() => {
+      this.location.reload();
+    });
+  }
+
+  submit(){
+    console.log(this.imageTest);
   }
 
   sendUserInfo(){

@@ -28,11 +28,9 @@ import { HighlightsComponent } from './sidenav_components/highlights/highlights.
 import { SettingsComponent } from './sidenav_components/settings/settings.component';
 import { MembersComponent } from './sidenav_components/members/members.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { ToDoComponent } from './to-do/to-do.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-// import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AuthService } from './service/auth.service';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { TimetableComponent } from './timetable/timetable.component';

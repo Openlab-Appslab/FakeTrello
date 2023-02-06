@@ -3,27 +3,13 @@
     <div class="d-flex align-items-start py-3 border-bottom">
         <div class="pl-sm-4 pl-2" id="img-section">
             <b>Profile Photo</b>
-            <p>Accepted file type .png. Less than 1MB</p>
-            <h4 class="headline_text">Fotografie</h4>
-            <div class="text-center">
-                <input class="form-control" type="file" 
-                        (change)="onChange($event)">
-              
-                <button (click)="onUpload()" 
-                    class="btn btn-success">
-                    Upload
-                </button>
-            </div>
-              
-            <div class="container text-center jumbotron"
-                *ngIf="shortLink">
-                <h2> Visit Here</h2>
-                <a href="{{shortLink}}">{{shortLink}}</a>
-            </div>
-              
-            <!--Flag variable is used here-->
-            <div class="container" *ngIf="loading">
-                <h3>Loading ...</h3>
+            <div class="img-wrapper">
+                <img src="../../../assets/user.png" style="max-height: 150px; max-width: auto; float: left;">
+                <div class="img-upload-wrapper" style="float: left">
+                    <label class="form-label" for="customFile">Default file input example</label>
+                    <input type="file" class="form-control" id="customFile" style="margin:0px 0px 0px 15px" [(ngModel)]="imageTest" accept="image/*" (change)="onFileChange($event)"/>
+                    <button class="btn btn-primary" style="width: 100px; margin: 20px 20px 10px 15px;"(click)="updateProfilePicture()">Upload</button><!---->
+                </div>
             </div>
         </div>
     </div>
