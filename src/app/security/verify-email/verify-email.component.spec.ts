@@ -1,4 +1,9 @@
+import { Overlay } from '@angular/cdk/overlay';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { InjectionToken } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 import { VerifyEmailComponent } from './verify-email.component';
 
@@ -8,7 +13,9 @@ describe('VerifyEmailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerifyEmailComponent ]
+      declarations: [ VerifyEmailComponent],
+      imports: [MatDialogModule, RouterModule.forRoot([])],
+      providers: [HttpClient, HttpHandler, Overlay]
     })
     .compileComponents();
   });

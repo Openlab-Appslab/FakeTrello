@@ -1,5 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -12,7 +13,7 @@ describe('AuthInterceptor', () => {
       HttpClient,
       HttpHandler,
       ],
-    imports: [RouterTestingModule]
+    imports: [RouterTestingModule, MatDialogModule]
   }));
 
   it('should be created', () => {
