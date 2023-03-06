@@ -35,8 +35,8 @@
                               cdkDropList
                               [cdkDropListData]="tasks"
                               class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}}
+                              (cdkDropListDropped)="onDrop($event, 'toDo')">
+                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
                                     <div class="box">
                                         <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)"><!--(click)="editTask(i)"-->  
                                             <mat-icon>edit</mat-icon>
@@ -99,8 +99,8 @@
                               cdkDropList
                               [cdkDropListData]="inprogress"
                               class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}}
+                              (cdkDropListDropped)="onDrop($event, 'inProgess')">
+                              <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
                                 <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
@@ -116,8 +116,8 @@
                               cdkDropList
                               [cdkDropListData]="done"
                               class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.text}} <br> {{item.deadline}} 
+                              (cdkDropListDropped)="onDrop($event, 'done')">
+                              <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}} 
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
                                         <mat-icon>delete</mat-icon>

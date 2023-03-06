@@ -29,6 +29,11 @@ export class TaskService {
     }, httpOptions);
   }
 
+  updateTask(task: ITask): Observable<void> {
+    const url = `http://localhost:8080/updateTaskState/${task.id}`;
+    return this.http.put<void>(url, task);
+  }
+
   getAllUserTasks(): Observable<ITask[]>{
     return this.http.get<ITask[]>('http://localhost:8080/getAllUsersTasks');
   }

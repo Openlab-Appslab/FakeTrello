@@ -59,6 +59,27 @@ export class ToDoComponent implements OnInit {
     );
   }
 
+  // public getAllUserTasks(): void {
+  //   this.taskService.getAllUserTasks().subscribe(
+  //     (response: ITask[]) => {
+  //       this.tasks = response;
+  //       this.inprogress = [];
+  //       this.done = [];
+  //       this.tasks.forEach(task => {
+  //         if (task.state === 'inProgress') {
+  //           this.inprogress.push(task);
+  //         } else if (task.state === 'done') {
+  //           this.done.push(task);
+  //         }
+  //       });
+  //       this.toDoForm.reset();
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
+
   editTask(taskModel: ITask){ 
     let cancelBtn = document.getElementById('edit_task_cancel');
     if(cancelBtn){
@@ -83,12 +104,39 @@ export class ToDoComponent implements OnInit {
     );
   }
 
+  updateTaskState(task: ITask, newState: string): void {
+    task.state = newState;
+    console.log(task.state, task.id, task.text, task.deadline)
+    this.taskService.updateTask(task).subscribe(
+      () => console.log('Task state updated successfully.'),
+      error => console.error('Error updating task state:', error)
+    );
+  }
+
   dontMakeItemIfEmpty() {
     if (this.toDoForm.value.item == ' ') {
       console.log('empty');
     }
     else {
       this.addTask();
+    }
+  }
+
+  onDrop(event: CdkDragDrop<ITask[]>, newState: string) {
+    const droppedTask = event.item.data;
+    const currentIndex = event.currentIndex;
+    const previousContainer = event.previousContainer;
+    const currentContainer = event.container;
+  
+    // Check if the task was dropped in a different container
+    if (previousContainer !== currentContainer) {
+      // Update the state of the dropped task
+      this.updateTaskState(droppedTask, newState);
+    }
+  
+    // Move the dropped task to the new position in the array
+    if (typeof currentIndex === 'number') {
+      moveItemInArray(currentContainer.data, event.previousIndex, currentIndex);
     }
   }
 

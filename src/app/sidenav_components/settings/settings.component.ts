@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,12 +14,12 @@ import { ProfileService } from 'src/app/service/profile.service';
 export class SettingsComponent implements OnInit {
 
   public profileData: ProfileData;
+  message: string = '';
 
   constructor(
     private router: Router,
     private profileService: ProfileService,
     private modalService: NgbModal,
-    private location: Location,
 
   ) { }
 
@@ -55,7 +56,7 @@ onFileChange(event: any) {
     console.log(this.imageTest);
 
     this.profileService.profilePictureUpload(image, userId).subscribe(() => {
-      this.location.reload();
+      this.message = 'Profile picture updated successfully';
     });
   }
 

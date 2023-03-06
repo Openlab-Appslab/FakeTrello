@@ -1,19 +1,23 @@
-<div class="wrapper bg-white mt-sm-5 background">
+<div class="wrapper bg-white mt-sm-5 background" *ngIf="profileData">
     <h2 class="pb-4 border-bottom">Account settings</h2>
     <div class="d-flex align-items-start py-3 border-bottom">
         <div class="pl-sm-4 pl-2" id="img-section">
             <b>Profile Photo</b>
             <div class="img-wrapper">
-                <img src="../../../assets/user.png" style="max-height: 150px; max-width: auto; float: left;">
+                <img *ngIf="profileData.profilePicture; else defaultPic" [src]="profileData.profilePicture" style="max-height: 150px; max-width: auto; float: left;">
+                    <ng-template #defaultPic>
+                        <img src="../../../assets/user.png" style="max-height: 150px; max-width: auto; float: left;">
+                    </ng-template>
                 <div class="img-upload-wrapper" style="float: left">
                     <label class="form-label" for="customFile">Default file input example</label>
                     <input type="file" class="form-control" id="customFile" style="margin:0px 0px 0px 15px" [(ngModel)]="imageTest" accept="image/*" (change)="onFileChange($event)"/>
-                    <button class="btn btn-primary" style="width: 100px; margin: 20px 20px 10px 15px;"(click)="updateProfilePicture()">Upload</button><!---->
+                    <button class="btn btn-primary" style="width: 100px; margin: 20px 20px 10px 15px;"(click)="updateProfilePicture()">Upload</button>
+                    <p style="color: purple" *ngIf="message">{{message}}</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-2" *ngIf="profileData">
+    <div class="py-2">
         <form [formGroup]="profileUpdateGroup" (ngSubmit)="sendUserInfo()">
             <div class="row py-2">
 
