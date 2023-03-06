@@ -30,6 +30,21 @@ export class TimetableComponent implements OnInit {
   wednesday: string[] = ['','', '', '', '', '', '', ''];
   thursday: string[] = ['','', '', '', '', '', '', ''];
   friday: string[] = ['','', '', '', '', '', '', ''];
+
+
+  sendListsToBackend() {
+    this.http.post('http://localhost:3000/timetable', {
+      monday: this.monday,
+      tuesday: this.tuesday,
+      wednesday: this.wednesday,
+      thursday: this.thursday,
+      friday: this.friday,
+    }).subscribe((res) => {
+      console.log(res);
+    });
+  }
+  
+
 }
 
 
