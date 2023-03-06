@@ -1,5 +1,8 @@
+import { Overlay } from '@angular/cdk/overlay';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { InjectionToken } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_SCROLL_STRATEGY } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,12 +15,15 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, MatDialogModule],
       declarations: [ LoginComponent ],
       providers: [
         AuthService,
         HttpClient,
-        HttpHandler
+        HttpHandler,
+        MatDialog,
+        Overlay,
+        
       ],
     })
     .compileComponents();

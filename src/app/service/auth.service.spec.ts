@@ -1,5 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BaseRouteReuseStrategy, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthGuard } from '../guard/auth.guard';
@@ -12,7 +13,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers:  [HttpClient, HttpHandler],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule, MatDialogModule]
 
 
     });

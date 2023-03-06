@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
 
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',

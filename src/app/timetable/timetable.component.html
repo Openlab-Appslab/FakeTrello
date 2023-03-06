@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script
+      src="https://kit.fontawesome.com/58577bf45a.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
   <body>
     <table class="timetable" border="5" cellspacing="0" align="center">
       <!--<caption>Timetable</caption>-->
@@ -48,10 +58,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon1"
+            [(ngModel)]="monday[0]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon1 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[0] }}</p>
         </td>
         <td
           align="center"
@@ -60,10 +70,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon2"
+            [(ngModel)]="monday[1]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon2 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[1] }}</p>
         </td>
         <td
           align="center"
@@ -72,10 +82,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon3"
+            [(ngModel)]="monday[2]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon3 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[2] }}</p>
         </td>
         <td rowspan="6" align="center" height="50">
           <h2>L<br />U<br />N<br />C<br />H</h2>
@@ -87,10 +97,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon4"
+            [(ngModel)]="monday[3]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon4 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[3] }}</p>
         </td>
         <td
           align="center"
@@ -99,10 +109,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon5"
+            [(ngModel)]="monday[4]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon5 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[4] }}</p>
         </td>
         <td
           align="center"
@@ -111,10 +121,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon6"
+            [(ngModel)]="monday[5]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon6 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[5] }}</p>
         </td>
         <td
           align="center"
@@ -123,10 +133,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon7"
+            [(ngModel)]="monday[6]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon7 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[6] }}</p>
         </td>
 
         <td
@@ -136,10 +146,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueMon8"
+            [(ngModel)]="monday[7]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueMon8 }}</p>
+          <p *ngIf="!inputVisible">{{ monday[7] }}</p>
         </td>
       </tr>
       <tr>
@@ -153,10 +163,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue1"
+            [(ngModel)]="tuesday[0]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue1 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[0] }}</p>
         </td>
         <td
           align="center"
@@ -165,10 +175,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue2"
+            [(ngModel)]="tuesday[1]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue2 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[1] }}</p>
         </td>
         <td
           align="center"
@@ -177,10 +187,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue3"
+            [(ngModel)]="tuesday[2]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue3 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[2] }}</p>
         </td>
         <td
           align="center"
@@ -189,10 +199,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue4"
+            [(ngModel)]="tuesday[3]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue4 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[3] }}</p>
         </td>
         <td
           align="center"
@@ -201,23 +211,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue5"
+            [(ngModel)]="tuesday[4]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue5 }}</p>
-        </td>
-
-        <td
-          align="center"
-          height="50"
-          (dblclick)="inputVisible = !inputVisible"
-        >
-          <input
-            *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue6"
-            (keyup.enter)="inputVisible = false"
-          />
-          <p *ngIf="!inputVisible">{{ inputValueTue6 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[4] }}</p>
         </td>
 
         <td
@@ -227,10 +224,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue7"
+            [(ngModel)]="tuesday[5]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue7 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[5] }}</p>
         </td>
 
         <td
@@ -240,75 +237,126 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueTue8"
+            [(ngModel)]="tuesday[6]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueTue8 }}</p>
+          <p *ngIf="!inputVisible">{{ tuesday[6] }}</p>
+        </td>
+
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="tuesday[7]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ tuesday[7] }}</p>
         </td>
       </tr>
       <tr>
         <td align="center" height="50">
           <b>Wednesday</b>
         </td>
-        
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed1" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed1 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed2" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed2 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed3" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed3 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed4" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed4 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed5" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed5 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed6" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed6 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed7" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed7 }}</p>
-        </td>
-        <td 
-          align="center" 
-          height="50" 
-          (dblclick)="inputVisible = !inputVisible">
-          <input *ngIf="inputVisible" [(ngModel)]="inputValueWed8" (keyup.enter)="inputVisible = false" />
-          <p *ngIf="!inputVisible">{{ inputValueWed8 }}</p>
-        </td>
 
-
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[0]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[0] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[1]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[1] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[2]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[2] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[3]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[3] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[4]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[4] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[5]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[5] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[6]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[6] }}</p>
+        </td>
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="wednesday[7]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ wednesday[7] }}</p>
+        </td>
       </tr>
       <tr>
         <td align="center" height="50">
@@ -321,10 +369,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu1"
+            [(ngModel)]="thursday[0]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu1 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[0] }}</p>
         </td>
         <td
           align="center"
@@ -333,23 +381,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu2"
+            [(ngModel)]="thursday[1]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu2 }}</p>
-        </td>
-
-        <td
-          align="center"
-          height="50"
-          (dblclick)="inputVisible = !inputVisible"
-        >
-          <input
-            *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu3"
-            (keyup.enter)="inputVisible = false"
-          />
-          <p *ngIf="!inputVisible">{{ inputValueThu3 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[1] }}</p>
         </td>
 
         <td
@@ -359,10 +394,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu4"
+            [(ngModel)]="thursday[2]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu4 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[2] }}</p>
         </td>
 
         <td
@@ -372,10 +407,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu5"
+            [(ngModel)]="thursday[3]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu5 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[3] }}</p>
         </td>
 
         <td
@@ -385,10 +420,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu6"
+            [(ngModel)]="thursday[4]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu6 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[4] }}</p>
         </td>
 
         <td
@@ -398,10 +433,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu7"
+            [(ngModel)]="thursday[5]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu7 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[5] }}</p>
         </td>
 
         <td
@@ -409,16 +444,26 @@
           height="50"
           (dblclick)="inputVisible = !inputVisible"
         >
-
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueThu8"
+            [(ngModel)]="thursday[6]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueThu8 }}</p>
+          <p *ngIf="!inputVisible">{{ thursday[6] }}</p>
         </td>
 
-
+        <td
+          align="center"
+          height="50"
+          (dblclick)="inputVisible = !inputVisible"
+        >
+          <input
+            *ngIf="inputVisible"
+            [(ngModel)]="thursday[7]"
+            (keyup.enter)="inputVisible = false"
+          />
+          <p *ngIf="!inputVisible">{{ thursday[7] }}</p>
+        </td>
       </tr>
       <tr>
         <td align="center" height="50">
@@ -431,10 +476,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri1"
+            [(ngModel)]="friday[0]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri1 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[0] }}</p>
         </td>
 
         <td
@@ -444,10 +489,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri2"
+            [(ngModel)]="friday[1]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri2 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[1] }}</p>
         </td>
 
         <td
@@ -457,10 +502,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri3"
+            [(ngModel)]="friday[2]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri3 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[2] }}</p>
         </td>
 
         <td
@@ -470,10 +515,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri4"
+            [(ngModel)]="friday[3]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri4 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[3] }}</p>
         </td>
 
         <td
@@ -483,10 +528,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri5"
+            [(ngModel)]="friday[4]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri5 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[4] }}</p>
         </td>
 
         <td
@@ -496,10 +541,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri6"
+            [(ngModel)]="friday[5]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri6 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[5] }}</p>
         </td>
 
         <td
@@ -509,10 +554,10 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri7"
+            [(ngModel)]="friday[6]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri7 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[6] }}</p>
         </td>
 
         <td
@@ -522,12 +567,28 @@
         >
           <input
             *ngIf="inputVisible"
-            [(ngModel)]="inputValueFri8"
+            [(ngModel)]="friday[7]"
             (keyup.enter)="inputVisible = false"
           />
-          <p *ngIf="!inputVisible">{{ inputValueFri8 }}</p>
+          <p *ngIf="!inputVisible">{{ friday[7] }}</p>
         </td>
       </tr>
     </table>
+
+    <button class="btn">
+      <i class="fa fa-folder"></i>
+    </button>
+    <style>
+      button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 30px;
+        border-radius: 5000px;
+        padding: 20px;
+        color: white;
+        background-color: #f27d92;
+      }
+    </style>
   </body>
 </html>
