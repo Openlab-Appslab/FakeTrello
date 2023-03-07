@@ -43,6 +43,7 @@ import { VerifyDialogComponent } from './security/verify-dialog/verify-dialog.co
 import { MatDialogModule } from '@angular/material/dialog';
 import { TeamComponent } from './team/team.component';
 import { SecretComponent } from './secret/secret.component';
+import { SavedDialogComponent } from './saved-dialog/saved-dialog.component';
 
 
 
@@ -67,6 +68,7 @@ import { SecretComponent } from './secret/secret.component';
     VerifyDialogComponent,
     TeamComponent,
     SecretComponent,
+    SavedDialogComponent,
   ],
   imports: [
     BrowserModule,
