@@ -46,39 +46,44 @@ export class ToDoComponent implements OnInit {
       });
   }
 
-  public getAllUserTasks(): void{ 
-    this.taskService.getAllUserTasks().subscribe( 
-      (response: ITask[]) => {
-        this.tasks = response;
-        this.toDoForm.reset();
-        console.log(this.tasks);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-
-  // public getAllUserTasks(): void {
-  //   this.taskService.getAllUserTasks().subscribe(
+  // public getAllUserTasks(): void{ 
+  //   this.taskService.getAllUserTasks().subscribe( 
   //     (response: ITask[]) => {
   //       this.tasks = response;
-  //       this.inprogress = [];
-  //       this.done = [];
-  //       this.tasks.forEach(task => {
-  //         if (task.state === 'inProgress') {
-  //           this.inprogress.push(task);
-  //         } else if (task.state === 'done') {
-  //           this.done.push(task);
-  //         }
-  //       });
   //       this.toDoForm.reset();
+  //       console.log(this.tasks);
   //     },
   //     (error: HttpErrorResponse) => {
   //       alert(error.message);
   //     }
   //   );
   // }
+
+  public getAllUserTasks(): void {
+    this.taskService.getAllUserTasks().subscribe(
+      (response: ITask[]) => {
+        this.tasks = [];
+        this.inprogress = [];
+        this.done = [];
+        response.forEach(task => {
+          console.log(task.state, 'state of task before pushing to array, state should be toDo');
+          if (task.state == 'inProgress') {
+            console.log(task.state, 'inProgress hehehe');
+            this.inprogress.push(task);
+          } else if (task.state == 'done') {
+            console.log(task.state, 'done hehehe');
+            this.done.push(task);
+          }
+          this.tasks.push(task);
+        });
+        this.toDoForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  
 
   editTask(taskModel: ITask){ 
     let cancelBtn = document.getElementById('edit_task_cancel');
@@ -87,7 +92,7 @@ export class ToDoComponent implements OnInit {
     }
     this.taskService.editTask(taskModel).subscribe(
       (response => {
-        console.log('listing edited', response);
+        // console.log('listing edited', response);
         this.getAllUserTasks();
       })
     )
@@ -99,18 +104,20 @@ export class ToDoComponent implements OnInit {
       (response: void) => {
         console.log('task deleted');
         this.getAllUserTasks();
-        this.done = this.tasks.filter(task => task.done);
+        this.done = this.tasks.filter(task => task.state == 'done');
       }
     );
   }
 
   updateTaskState(task: ITask, newState: string): void {
+    console.log(task.state, 'old state');
     task.state = newState;
-    console.log(task.state, task.id, task.text, task.deadline)
-    this.taskService.updateTask(task).subscribe(
-      () => console.log('Task state updated successfully.'),
-      error => console.error('Error updating task state:', error)
-    );
+    console.log(task.state, 'new state');
+    console.log(task.state, task.id, task.text, task.deadline);
+    this.taskService.updateTask(task).subscribe({
+      next: () => console.log('Task state updated successfully.'),
+      error: error => console.error('Error updating task state:', error)
+    });
   }
 
   dontMakeItemIfEmpty() {
@@ -128,13 +135,10 @@ export class ToDoComponent implements OnInit {
     const previousContainer = event.previousContainer;
     const currentContainer = event.container;
   
-    // Check if the task was dropped in a different container
     if (previousContainer !== currentContainer) {
-      // Update the state of the dropped task
       this.updateTaskState(droppedTask, newState);
     }
   
-    // Move the dropped task to the new position in the array
     if (typeof currentIndex === 'number') {
       moveItemInArray(currentContainer.data, event.previousIndex, currentIndex);
     }

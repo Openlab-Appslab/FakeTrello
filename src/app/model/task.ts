@@ -1,7 +1,6 @@
 export interface ITask {
     id: number;
-    deadline: Date;
-    text: string,
-    done: boolean,   
+    deadline: string;
+    text: string,  
     state: string,
 }
