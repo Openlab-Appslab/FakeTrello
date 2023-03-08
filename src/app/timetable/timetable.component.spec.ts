@@ -1,3 +1,4 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimetableComponent } from './timetable.component';
@@ -8,7 +9,8 @@ describe('TimetableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimetableComponent ]
+      declarations: [ TimetableComponent ],
+      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   });

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { SavedDialogComponent } from '../saved-dialog/saved-dialog.component';
 
 @Component({
   selector: 'app-timetable',
@@ -13,6 +15,7 @@ export class TimetableComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -32,8 +35,8 @@ export class TimetableComponent implements OnInit {
   friday: string[] = ['','', '', '', '', '', '', ''];
 
 
-  sendListsToBackend() {
-    this.http.post('http://localhost:3000/timetable', {
+  sendDataToBackend() {
+    this.http.post('http://localhost:8000/timetable', {
       monday: this.monday,
       tuesday: this.tuesday,
       wednesday: this.wednesday,
@@ -42,10 +45,17 @@ export class TimetableComponent implements OnInit {
     }).subscribe((res) => {
       console.log(res);
     });
+    
+    this.openDialog();
+    
   }
   
+  openDialog() {
+    this.dialog.open(SavedDialogComponent);
+
+    setTimeout  (() => {
+      this.dialog.closeAll();
+    }, 2000);
+  }
 
 }
-
-
-
