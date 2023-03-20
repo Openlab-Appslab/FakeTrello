@@ -26,6 +26,7 @@ export class TaskService {
     return this.http.post('http://localhost:8080/createTask', {
       text,
       deadline,
+      state: "toDo",
     }, httpOptions);
   }
 

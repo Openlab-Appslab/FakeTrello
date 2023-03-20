@@ -39,26 +39,23 @@ export class SettingsComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  imageTest: string = '';
+  imageTest: File | null = null;
 
-onFileChange(event: any) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageTest = reader.result as string;
-      console.log(this.imageTest);
-    };
-    reader.readAsDataURL(event.target.files[0]);
+  onFileChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      this.imageTest = event.target.files[0];
+    }
   }
 
-  updateProfilePicture(){
-    const userId = this.profileData.id;
-    const image = this.imageTest;
-    console.log(this.profileData.id);
-    console.log(this.imageTest);
-
-    this.profileService.profilePictureUpload(image, userId).subscribe(() => {
-      this.message = 'Profile picture updated successfully';
-    });
+  updateProfilePicture() {
+    if (this.imageTest) {
+      console.log(this.imageTest, 'image before DB');
+  
+      this.profileService.profilePictureUpload(this.imageTest).subscribe(() => {
+        this.message = 'Profile picture updated successfully';
+        this.getUserData();
+      });
+    }
   }
 
   submit(){
@@ -84,6 +81,8 @@ onFileChange(event: any) {
     this.profileService.getProfileData()
       .subscribe(response => {
         this.profileData = response;
+        const test = this.profileData.profilePicture;
+        console.log(this.profileData.profilePicture, 'profilePic from DB');
         console.log(this.profileData);
         this.profileUpdateGroup.patchValue({
           email: response.email,
@@ -94,6 +93,18 @@ onFileChange(event: any) {
         })
       })
   }
+
+  //   getImage() {
+
+  //   this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
+  //     .subscribe(
+  //       res => {
+  //         this.retrieveResonse = res;
+  //         this.base64Data = this.retrieveResonse.picByte;
+  //         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+  //       }
+  //     );
+  // }
 
   deleteUser(){
     this.profileService.deleteUser()

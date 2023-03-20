@@ -1,3 +1,5 @@
+import { Byte } from "@angular/compiler/src/util";
+
 export interface ProfileData {
     id: number;
     email: string;
@@ -5,5 +7,5 @@ export interface ProfileData {
     lastName: string;
     nickname: string;
     phoneNumber: number;
-    profilePicture: string;
+    profilePicture: any;
 }

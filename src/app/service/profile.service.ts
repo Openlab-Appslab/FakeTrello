@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
@@ -8,6 +8,10 @@ const httpOptions = {
   headers: new HttpHeaders({ 
     'Content-Type': 'application/json', 
   })
+};
+
+const httpOptionsMultipart = {
+  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
 };
 
 @Injectable({
@@ -41,10 +45,19 @@ export class ProfileService {
     return this.http.delete<void>('http://localhost:8080/deleteUser');   
   }
 
-  profilePictureUpload(image: string, userId: number): Observable<any>{
-    return this.http.put('http://localhost:8080/uploadProfilePicture', {
-      userId,
-      image,
-    }, httpOptions);
+  // profilePictureUpload(image: string): Observable<any>{
+  //   return this.http.put('http://localhost:8080/uploadProfilePicture', {
+  //     image,
+  //   }, httpOptions);
+  // }
+  // profilePictureUpload(image: string): Observable<any> {
+  //   const params = new HttpParams().set('image', image);
+  //   return this.http.put('http://localhost:8080/uploadProfilePicture', {}, { params });
+  // }
+  profilePictureUpload(image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', image);
+  
+    return this.http.put('http://localhost:8080/uploadProfilePicture', formData, httpOptionsMultipart);
   }
 }

@@ -16,6 +16,8 @@ export class ToDoComponent implements OnInit {
 
   toDoForm !: FormGroup;
   tasks: ITask[] = [];
+
+  toDo: ITask[] = [];
   inprogress: ITask[] = [];
   done: ITask[] = [];
   updateIndex!: any;
@@ -45,37 +47,50 @@ export class ToDoComponent implements OnInit {
         this.toDoForm.reset();
       });
   }
+  
+  test() {
+    console.log("Tasks in 'toDo' array:");
+    console.log("----------------------");
+    this.toDo.forEach((task) => {
+      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+    });
+    console.log("Tasks in 'inprogress' array:");
+    console.log("----------------------");
+    this.inprogress.forEach((task) => {
+      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+    });
+    console.log("Tasks in 'done' array:");
+    console.log("----------------------");
+    this.done.forEach((task) => {
+      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+    });
+    console.log("All tasks:");
+    console.log("----------------------");
+    this.tasks.forEach((task) => {
+      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+    });
+  }
 
-  // public getAllUserTasks(): void{ 
-  //   this.taskService.getAllUserTasks().subscribe( 
-  //     (response: ITask[]) => {
-  //       this.tasks = response;
-  //       this.toDoForm.reset();
-  //       console.log(this.tasks);
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
-
-  public getAllUserTasks(): void {
-    this.taskService.getAllUserTasks().subscribe(
+  public getAllUserTasks(): void { 
+    this.taskService.getAllUserTasks().subscribe( 
       (response: ITask[]) => {
-        this.tasks = [];
+        // Initialize arrays
+        this.tasks = response;
+        this.toDo = [];
         this.inprogress = [];
         this.done = [];
-        response.forEach(task => {
-          console.log(task.state, 'state of task before pushing to array, state should be toDo');
-          if (task.state == 'inProgress') {
-            console.log(task.state, 'inProgress hehehe');
+  
+        // Sort tasks into arrays based on state
+        this.tasks.forEach(task => {
+          if (task.state === 'toDo' || task.state === 'todo') {
+            this.toDo.push(task);
+          } else if (task.state === 'inprogress') {
             this.inprogress.push(task);
-          } else if (task.state == 'done') {
-            console.log(task.state, 'done hehehe');
+          } else if (task.state === 'done') {
             this.done.push(task);
           }
-          this.tasks.push(task);
         });
+  
         this.toDoForm.reset();
       },
       (error: HttpErrorResponse) => {
@@ -92,7 +107,6 @@ export class ToDoComponent implements OnInit {
     }
     this.taskService.editTask(taskModel).subscribe(
       (response => {
-        // console.log('listing edited', response);
         this.getAllUserTasks();
       })
     )
@@ -109,17 +123,6 @@ export class ToDoComponent implements OnInit {
     );
   }
 
-  updateTaskState(task: ITask, newState: string): void {
-    console.log(task.state, 'old state');
-    task.state = newState;
-    console.log(task.state, 'new state');
-    console.log(task.state, task.id, task.text, task.deadline);
-    this.taskService.updateTask(task).subscribe({
-      next: () => console.log('Task state updated successfully.'),
-      error: error => console.error('Error updating task state:', error)
-    });
-  }
-
   dontMakeItemIfEmpty() {
     if (this.toDoForm.value.item == ' ') {
       console.log('empty');
@@ -131,34 +134,35 @@ export class ToDoComponent implements OnInit {
 
   onDrop(event: CdkDragDrop<ITask[]>, newState: string) {
     const droppedTask = event.item.data;
+    const previousIndex = event.previousIndex;
     const currentIndex = event.currentIndex;
     const previousContainer = event.previousContainer;
     const currentContainer = event.container;
   
     if (previousContainer !== currentContainer) {
-      this.updateTaskState(droppedTask, newState);
-    }
-  
-    if (typeof currentIndex === 'number') {
-      moveItemInArray(currentContainer.data, event.previousIndex, currentIndex);
-    }
-  }
-
-  drop(event: CdkDragDrop<ITask[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
+      droppedTask.state = newState;
+      this.taskService.updateTask(droppedTask).subscribe(
+        () => {
+          console.log('Task updated successfully');
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
       );
+  
+      // Remove task from previous array
+      previousContainer.data.splice(previousIndex, 1);
+  
+      // Push task to new array
+      currentContainer.data.splice(currentIndex, 0, droppedTask);
+    } else {
+      // Move task within the same array
+      moveItemInArray(currentContainer.data, previousIndex, currentIndex);
     }
   }
+  
 
   ngOnInit(): void {
-
     this.getAllUserTasks();
 
     this.toDoForm = this.fb.group({

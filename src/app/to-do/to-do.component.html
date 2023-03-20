@@ -17,8 +17,11 @@
                         <mat-hint>add task deadline</mat-hint> 
                     </mat-form-field>
 
+                    
+
                     <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button> <!--(click)="dontMakeItemIfEmpty()"-->
                     <!-- <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Update Task</button> -->
+                    <button style="color: transparent; border: none; background-color: transparent;" (click)="test()">TEST</button>
                 </form>
             </mat-card>
            </div> 
@@ -29,16 +32,16 @@
                     <div class="col-md-4">
                         <!-- toDo -->
                         <div class="example-container">
-                            <h2 class="head_title">To do <span *ngIf="tasks.length > 0"> - {{tasks.length}}</span></h2>
-                        
+                            <h2 class="head_title">To do <span *ngIf="toDo.length > 0"> - {{tasks.length}}</span></h2>
+
                             <div
                               cdkDropList
-                              [cdkDropListData]="tasks"
+                              [cdkDropListData]="toDo"
                               class="example-list"
-                              (cdkDropListDropped)="onDrop($event, 'toDo')">
-                                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
+                              (cdkDropListDropped)="onDrop($event, 'todo')">
+                                <div class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
                                     <div class="box">
-                                        <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)"><!--(click)="editTask(i)"-->  
+                                        <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)">
                                             <mat-icon>edit</mat-icon>
                                         </button>
                                         <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
@@ -60,11 +63,6 @@
                                                 <div class="form-group">
                                                     <input type="hidden" [(ngModel)]="item.id" name="id" id="listingId" class="form-control">
                                                 </div>
-                        
-                                                <!-- <div class="form-group">
-                                                    <label for="title">Title</label>
-                                                    <input type="text" class="form-control" id="title" [(ngModel)]="item.text" name="title">
-                                                </div> -->
                         
                                                 <div class="form-group">
                                                     <label for="description">Description</label>
@@ -99,7 +97,7 @@
                               cdkDropList
                               [cdkDropListData]="inprogress"
                               class="example-list"
-                              (cdkDropListDropped)="onDrop($event, 'inProgess')">
+                              (cdkDropListDropped)="onDrop($event, 'inprogress')">
                               <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
                                 <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
                                     <mat-icon>delete</mat-icon>
