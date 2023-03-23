@@ -1,5 +1,3 @@
-import { Byte } from "@angular/compiler/src/util";
-
 export interface ProfileData {
     id: number;
     email: string;
