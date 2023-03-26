@@ -5,10 +5,9 @@
         <div class="col col-lg-9 col-xl-7">
           <div class="card">
             <div class="rounded-top text-white d-flex flex-row" id="profile_background">
-              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                  style="width: 150px; z-index: 1">
+              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px; height: auto;">
+                <img [src]="'data:image/jpg;base64,' + profileData.profilePicture"
+                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2">
                 <button type="button" class="btn btn-outline-light" data-mdb-ripple-color="bg-light"
                   style="z-index: 1; margin-bottom: 1rem;"
                   routerLink="/settings">

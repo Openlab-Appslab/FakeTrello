@@ -25,8 +25,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfileData().subscribe( //subscribe waits for the response from the server and then executes the code inside the subscribe
       (response: ProfileData) => {
         this.profileData = response;
-        console.log('my profileData');
-        console.log(this.profileData);
+        console.log('my profileData', this.profileData);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
