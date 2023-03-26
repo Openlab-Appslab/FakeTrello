@@ -52,6 +52,10 @@
                     Passwords do not match!
                   </div>
 
+                  <div class="email_in_use" *ngIf="errorMessage" style="color: red;">
+                    {{errorMessage}}
+                  </div>
+
                   <div class="form-check d-flex justify-content-center mb-5">
                     Already have an account? <a routerLink="/login"> Sign In!</a><br>
                   </div>

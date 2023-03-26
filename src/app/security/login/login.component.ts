@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   responseData: any;
   componentName = "test";
 
+  errorMessage = '';
+
   hide = true;
 
   constructor(
@@ -37,7 +39,13 @@ export class LoginComponent implements OnInit {
       const email = this.loginGroup.value.email;
       const password = this.loginGroup.value.password;
       this.authService.login(email, password)
-        .subscribe(() => this.router.navigateByUrl('/boards'));
+        .subscribe(() => this.router.navigateByUrl('/boards'),
+          (error) => {
+            if(error.status === 401){
+              this.errorMessage = 'Bad Credentials!';
+              console.log("Bad credentials");
+            }
+          });
     }
   }
 

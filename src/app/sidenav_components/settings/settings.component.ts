@@ -1,10 +1,12 @@
 import { Location } from '@angular/common';
+import { Byte } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileData } from 'src/app/model/profileData';
 import { ProfileService } from 'src/app/service/profile.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -16,11 +18,13 @@ export class SettingsComponent implements OnInit {
 
   public profileData: ProfileData;
   message: string = '';
+  profilePic: Byte;
 
   constructor(
     private router: Router,
     private profileService: ProfileService,
     private modalService: NgbModal,
+    private location: Location,
 
   ) { }
 
@@ -51,12 +55,15 @@ export class SettingsComponent implements OnInit {
     if (this.imageTest) {
       console.log(this.imageTest, 'image before DB');
   
-      this.profileService.profilePictureUpload(this.imageTest).subscribe(() => {
-        this.message = 'Profile picture updated successfully';
+      this.profileService.profilePictureUpload(this.imageTest).subscribe((response: ProfileData) => {
         this.getUserData();
+        this.message = 'Profile picture updated successfully';
+        console.log(response.profilePicture, 'profilePic from DB');
       });
     }
   }
+
+
 
   submit(){
     console.log(this.imageTest);
@@ -80,10 +87,8 @@ export class SettingsComponent implements OnInit {
   getUserData(): void{
     this.profileService.getProfileData()
       .subscribe(response => {
+        console.log(response.profilePicture, 'profilePic from DB');
         this.profileData = response;
-        const test = this.profileData.profilePicture;
-        console.log(this.profileData.profilePicture, 'profilePic from DB');
-        console.log(this.profileData);
         this.profileUpdateGroup.patchValue({
           email: response.email,
           firstName: response.firstName,
@@ -91,24 +96,12 @@ export class SettingsComponent implements OnInit {
           nickname: response.nickname,
           phoneNumber: response.phoneNumber,
         })
+        console.log(this.profileData.profilePicture);
       })
   }
-
-  //   getImage() {
-
-  //   this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
-  //     .subscribe(
-  //       res => {
-  //         this.retrieveResonse = res;
-  //         this.base64Data = this.retrieveResonse.picByte;
-  //         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-  //       }
-  //     );
-  // }
 
   deleteUser(){
     this.profileService.deleteUser()
       .subscribe(() => this.router.navigateByUrl('/login'));
   }
-
 }

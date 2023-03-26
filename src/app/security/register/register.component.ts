@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   hide = true;
   hide2= true;
 
+  errorMessage = '';
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -39,7 +41,14 @@ export class RegisterComponent implements OnInit {
       console.log(this.registerGroup.value);
     
       this.authService.register(email, password)  
-        .subscribe(() => this.authService.showRegisterVerifyialog());
+      .subscribe(
+        () => this.authService.showRegisterVerifyialog(),
+        (error) => {
+          if(error.status === 401){
+            this.errorMessage = 'Užívateľ s týmto emailom už existuje!';
+            console.log("Bad credentials");
+          }
+        });
     }
   }
 

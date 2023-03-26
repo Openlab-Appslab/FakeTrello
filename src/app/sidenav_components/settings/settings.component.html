@@ -4,7 +4,7 @@
         <div class="pl-sm-4 pl-2" id="img-section">
             <b>Profile Photo</b>
             <div class="img-wrapper">
-                <img *ngIf="profileData.profilePicture; else defaultPic" [src]="profileData.profilePicture" style="max-height: 150px; max-width: auto; float: left;">
+                <img *ngIf="profileData.profilePicture; else defaultPic" [src]="'data:image/jpg;base64,' + profileData.profilePicture" style="max-height: 150px; max-width: auto; float: left;">
                     <ng-template #defaultPic>
                         <img src="../../../assets/user.png" style="max-height: 150px; max-width: auto; float: left;">
                     </ng-template>
