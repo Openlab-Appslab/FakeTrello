@@ -73,7 +73,7 @@ export class TimetableComponent implements OnInit {
   }
 
   // sendDataToBackend() {
-  //   this.http.post('http://localhost:8000/timetable', {
+  //   this.http.post('http://localhost:8080/timetable', {
   //     monday: this.monday,
   //     tuesday: this.tuesday,
   //     wednesday: this.wednesday,
