@@ -19,11 +19,12 @@ export class TaskService {
     
   ) { }
 
-  createTask(text: string, deadline: string): Observable<any>{
+  createTask(title: string, text: string, deadline: string): Observable<any>{
     console.log(text, deadline);
     console.log("service works");
 
     return this.http.post('http://localhost:8080/createTask', {
+      title,
       text,
       deadline,
       state: "toDo",

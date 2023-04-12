@@ -40,7 +40,7 @@ export class ToDoComponent implements OnInit {
 
   addTask() {
     console.log(this.toDoForm.value);
-    this.taskService.createTask(this.toDoForm.value.item, this.toDoForm.value.deadline)
+    this.taskService.createTask(this.toDoForm.value.title, this.toDoForm.value.item, this.toDoForm.value.deadline)
       .subscribe((response: any) => {
         console.log(response);
         this.getAllUserTasks();
@@ -52,22 +52,22 @@ export class ToDoComponent implements OnInit {
     console.log("Tasks in 'toDo' array:");
     console.log("----------------------");
     this.toDo.forEach((task) => {
-      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+      console.log(`Title: ${task.title}, Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
     });
     console.log("Tasks in 'inprogress' array:");
     console.log("----------------------");
     this.inprogress.forEach((task) => {
-      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+      console.log(`Title: ${task.title}, Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
     });
     console.log("Tasks in 'done' array:");
     console.log("----------------------");
     this.done.forEach((task) => {
-      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+      console.log(`Title: ${task.title}, Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
     });
     console.log("All tasks:");
     console.log("----------------------");
     this.tasks.forEach((task) => {
-      console.log(`Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
+      console.log(`Title: ${task.title}, Task: ${task.text}, Deadline: ${task.deadline}, State: ${task.state}`);
     });
   }
 
