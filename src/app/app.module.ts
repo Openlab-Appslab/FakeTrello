@@ -45,6 +45,7 @@ import { TeamComponent } from './team/team.component';
 import { SecretComponent } from './secret/secret.component';
 import { SavedDialogComponent } from './saved-dialog/saved-dialog.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -71,6 +72,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     SecretComponent,
     SavedDialogComponent,
     ChangePasswordComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
