@@ -89,4 +89,30 @@ export class AuthService {
         this.dialog.closeAll();
       }, 2000);
     }
+
+    forgotPassword(email: string){
+      const url = `http://localhost:8080/noAuth/forgotPassword`;
+
+      const formData = new FormData();
+      formData.append('email', email);
+
+      return this.http.post(url, formData);
+    }
+
+    resetPassword(password: string, verifToken: string){
+      const url = `http://localhost:8080/noAuth/resetPasswordViaVerification/${verifToken}`;
+
+      this.cookies.set('password', password);
+      
+      const info = btoa(`${this.cookies.get('email')}:${password}`);
+      const token = `Basic ${info}`;
+
+      const formData = new FormData();
+      formData.append('password', password);
+
+      return this.http.post(url, formData).subscribe((response:any) => {
+        console.log(response);
+      });
+
+    }
 }

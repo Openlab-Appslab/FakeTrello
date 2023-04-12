@@ -44,6 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TeamComponent } from './team/team.component';
 import { SecretComponent } from './secret/secret.component';
 import { SavedDialogComponent } from './saved-dialog/saved-dialog.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -69,6 +71,8 @@ import { SavedDialogComponent } from './saved-dialog/saved-dialog.component';
     TeamComponent,
     SecretComponent,
     SavedDialogComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

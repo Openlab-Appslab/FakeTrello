@@ -17,6 +17,8 @@ import { VerifyEmailComponent } from './security/verify-email/verify-email.compo
 import { ResourcesComponent } from './resources/resources.component';
 import { TeamComponent } from './team/team.component';
 import { SecretComponent } from './secret/secret.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "basicRoute", pathMatch: "full" },
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: "resources", component: ResourcesComponent },
   { path: "team", component: TeamComponent },
   { path: "secret", component: SecretComponent },
+  { path: "forgotPassword" , component: ForgotPasswordComponent},
+  { path: "resetPassword", component: ResetPasswordComponent}
 
 
 ];
