@@ -89,4 +89,13 @@ export class AuthService {
         this.dialog.closeAll();
       }, 2000);
     }
+
+    forgotPassword(email: string){
+      const url = `http://localhost:8080/noAuth/forgotPassword`;
+
+      const formData = new FormData();
+      formData.append('email', email);
+
+      return this.http.post(url, formData);
+    }
 }

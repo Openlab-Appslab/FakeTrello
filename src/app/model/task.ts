@@ -3,4 +3,5 @@ export interface ITask {
     deadline: string;
     text: string,  
     state: string,
+    title: string,
 }
