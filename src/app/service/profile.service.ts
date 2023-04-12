@@ -63,6 +63,7 @@ export class ProfileService {
   changePassword(password: string): Observable<any> {
     const formData = new FormData();
     formData.append('password', password);
+    console.log(password);
     return this.http.put('http://localhost:8080/changePassword', formData);
   }
 }
