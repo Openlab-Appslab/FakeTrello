@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterComponent } from './register.component';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 
@@ -20,15 +21,23 @@ describe('RegisterComponent', () => {
       providers: [HttpClient, HttpHandler, MatDialog, Overlay]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.registerGroup = new FormGroup({
+      password: new FormControl('1234'),
+      repeatPassword: new FormControl('1234'),
+    });
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should return true when passwords match', () => {
+    const result = component.passwordsMatch();
+    expect(result).toBeTruthy();
+  });
+
+  it('should return false when passwords do not match', () => {
+    component.registerGroup.controls['repeatPassword'].setValue('password456');
+    const result = component.passwordsMatch();
+    expect(result).toBeFalsy();
   });
 });
