@@ -48,15 +48,15 @@
                     </div>
                   </div>
 
-                  <div class="alert" *ngIf="passwordsMatch() == false" style="color: red;">
+                  <div class="alert" *ngIf="passwordsMatch() == false" style="color: red; text-align: center;">
                     Passwords do not match!
                   </div>
 
-                  <div class="email_in_use" *ngIf="errorMessage" style="color: red;">
+                  <div class="email_in_use" *ngIf="errorMessage" style="color: red; text-align: center;">
                     {{errorMessage}}
                   </div>
 
-                  <div class="form-check d-flex justify-content-center mb-5">
+                  <div class="form-check d-flex justify-content-center mb-5" style="margin-top: 25px;">
                     Already have an account? <a routerLink="/login"> Sign In!</a><br>
                   </div>
 

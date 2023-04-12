@@ -45,6 +45,14 @@ export class LoginComponent implements OnInit {
               this.errorMessage = 'Bad Credentials!';
               console.log("Bad credentials");
             }
+            if(error.status === 111){
+              this.errorMessage = 'Wrong password!';
+              console.log("Bad credentials - email");
+            }
+            if(error.status === 222){
+              this.errorMessage = 'Wrong email!';
+              console.log("Bad credentials - email");
+            }
           });
     }
   }

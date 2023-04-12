@@ -44,8 +44,8 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         () => this.authService.showRegisterVerifyialog(),
         (error) => {
-          if(error.status === 401){
-            this.errorMessage = 'Užívateľ s týmto emailom už existuje!';
+          if(error.status === 400){
+            this.errorMessage = 'User with this E-Mail already exists!';
             console.log("Bad credentials");
           }
         });

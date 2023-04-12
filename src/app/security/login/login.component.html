@@ -35,11 +35,11 @@
                       </div>
                     </div>
 
-                    <div class="email_in_use" *ngIf="errorMessage" style="color: red;">
+                    <div class="email_in_use" *ngIf="errorMessage" style="color: red; text-align: center; font-size: medium">
                       {{errorMessage}}
                     </div>
 
-                    <div class="form-check d-flex justify-content-center mb-5">
+                    <div class="form-check d-flex justify-content-center mb-5" style="margin-top: 25px;">
                       <label class="form-check-label" for="form2Example3">
                         You do not have an account? <a routerLink="/register">Sign Up!</a>
                       </label>
