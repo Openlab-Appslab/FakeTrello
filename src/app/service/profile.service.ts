@@ -60,4 +60,9 @@ export class ProfileService {
   
     return this.http.put('http://localhost:8080/uploadProfilePicture', formData, httpOptionsMultipart);
   }
+  changePassword(password: string): Observable<any> {
+    const formData = new FormData();
+    formData.append('password', password);
+    return this.http.put('http://localhost:8080/changePassword', formData);
+  }
 }
