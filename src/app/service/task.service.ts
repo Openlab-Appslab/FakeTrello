@@ -27,7 +27,7 @@ export class TaskService {
       title,
       text,
       deadline,
-      state: "toDo",
+      // state: "toDo",
     }, httpOptions);
   }
 

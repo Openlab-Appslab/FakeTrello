@@ -63,8 +63,6 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-
-
   submit(){
     console.log(this.imageTest);
   }
