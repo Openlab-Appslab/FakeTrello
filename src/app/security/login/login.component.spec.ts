@@ -23,7 +23,6 @@ describe('LoginComponent', () => {
         HttpHandler,
         MatDialog,
         Overlay,
-        
       ],
     })
     .compileComponents();

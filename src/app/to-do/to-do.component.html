@@ -47,7 +47,7 @@
                               [cdkDropListData]="toDo"
                               class="example-list"
                               (cdkDropListDropped)="onDrop($event, 'todo')">
-                                <div class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
+                                <div class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.title}}<br>{{item.text}} <br> {{item.deadline}}
                                     <div class="box">
                                         <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)">
                                             <mat-icon>edit</mat-icon>
