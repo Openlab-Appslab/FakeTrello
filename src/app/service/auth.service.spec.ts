@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthGuard } from '../guard/auth.guard';
 
 import { AuthService } from './auth.service';
+import { ImplicitReceiver } from '@angular/compiler';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -13,8 +14,8 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers:  [HttpClient, HttpHandler],
-      imports: [RouterTestingModule, MatDialogModule]
-
+      imports: [RouterTestingModule, MatDialogModule],
+      declarations: [AuthGuard]
 
     });
     service = TestBed.inject(AuthService);
