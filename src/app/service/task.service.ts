@@ -24,17 +24,6 @@ export class TaskService {
     return this.http.post('http://localhost:8080/createTask', formData, httpOptions);
   }
 
-  // createTask(title: string, text: string, deadline: string): Observable<any>{
-  //   console.log(title, text, deadline, "task service");
-
-  //   return this.http.post('http://localhost:8080/createTask', {
-  //     title,
-  //     text,
-  //     deadline,
-  //     state: "toDo",
-  //   }, httpOptions);
-  // }
-
   updateTask(task: ITask): Observable<void> {
     const url = `http://localhost:8080/updateTaskState/${task.id}`;
     return this.http.put<void>(url, task);
