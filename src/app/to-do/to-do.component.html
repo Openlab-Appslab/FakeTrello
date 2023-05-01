@@ -57,10 +57,10 @@
                               (cdkDropListDropped)="onDrop($event, 'todo')">
                                 <div (click)="openTaskInfoModal(content)" class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.title}}<br>{{item.deadline}}
                                     <div class="box">
-                                        <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)">
+                                        <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal); $event.stopPropagation()">
                                             <mat-icon>edit</mat-icon>
                                         </button>
-                                        <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
+                                        <button mat-icon-button color="warn" (click)="deleteTask(item.id); $event.stopPropagation()">
                                             <mat-icon>delete</mat-icon>
                                         </button>
                                     </div>
@@ -114,12 +114,15 @@
                                         <div class="modal-body">
                                             <p>{{item.text}}&hellip;</p>
                                             <mat-divider></mat-divider>
+                                            
                                                 <div class="image-list" style="padding-top: 15px; display: flex; align-items: center;">
                                                     <h4 style="margin-right: 10px;">Images:</h4>
                                                     <div style="flex: 1;">
-                                                        <img *ngFor="let image of item.listOfImage" [src]="'data:image/png;base64,' + image" style="max-width: 100%; max-height: 100px; margin-right: 10px;">
+                                                        <img *ngFor="let image of item.listOfImage" [src]="'data:image/png;base64,' + image" 
+                                                        style="max-width: 100%; max-height: 320px; margin-right: 10px; margin-top: 10px;">
                                                     </div>
                                                 </div>
+                                                  
                                             <mat-divider></mat-divider>
                                             <div class="deadline-wrapper" style="padding-top: 15px; display: flex; align-items: center;">
                                                 <h4 style="margin-right: 10px;">Deadline:</h4>

@@ -25,6 +25,8 @@ export class ToDoComponent implements OnInit {
   selectedFiles: File[] = [];
   showSelectedFiles = false;
 
+  fullScreenContent: any;
+  fullScreenImage: string;
 
   constructor(
     private fb: FormBuilder,
@@ -79,6 +81,13 @@ export class ToDoComponent implements OnInit {
 
   openTaskInfoModal(content: any) {
     this.modalService.open(content, { size: 'xl' });
+  }
+
+  openFullScreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
   }
   
   test() {
