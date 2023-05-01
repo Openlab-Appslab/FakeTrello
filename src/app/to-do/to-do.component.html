@@ -3,32 +3,40 @@
         <div style="background: #303030;" class="main_div col-md-3">
            <div>
             <mat-card class="matcard mt-3">
-                <form [formGroup]="toDoForm">
+                <form [formGroup]="toDoForm" (ngSubmit)="addTask()">
 
                     <mat-form-field appearance="outline">
                         <mat-label>Task Title</mat-label> 
-                        <input formControlName="title" matInput placeholder="Add Task Title">
-                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> --> 
+                        <input formControlName="title" matInput placeholder="Add Task Title"> 
                         <mat-hint>add task title</mat-hint>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Task Name</mat-label> 
-                        <input formControlName="item" matInput placeholder="Add Task">
-                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> --> 
-                        <mat-hint>add task description</mat-hint>
-                    </mat-form-field>
+                        <input formControlName="text" matInput placeholder="Add Task">
+                    </mat-form-field> 
 
                     <mat-form-field appearance="outline">
                         <mat-label>Task Deadline</mat-label>
                         <input type="date" formControlName="deadline" matInput placeholder="Add Deadline">
-                        <mat-hint>add task deadline</mat-hint> 
                     </mat-form-field>
-
                     
+                    <input [disabled]="selectedFiles.length >= 5" type="file" id="images" name="images" (change)="onFileSelected($event)">
+                    <div class="images-before-db">
+                        <h4>Selected Images:</h4>
+                        <ul>
+                        <li *ngFor="let image of selectedFiles" class="image" style="margin-top: 5px;">
+                            {{ image.name }}
+                            <button class="btn btn-danger" (click)="removeSelectedFile(image)">x</button>
+                        </li>
+                        </ul>
+                    </div>
 
-                    <button *ngIf="!isEditEnabled" (click)="addTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Add Task</button> <!--(click)="dontMakeItemIfEmpty()"-->
-                    <!-- <button *ngIf="isEditEnabled" (click)="updateTask()" mat-raised-button class="add_button" [disabled]="toDoForm.invalid">Update Task</button> -->
+                    <div *ngIf="selectedFiles.length >= 5" class="error-message" style="color: red; margin-bottom: 15px;">  
+                        Max 5 images allowed!
+                    </div>                      
+
+                    <button *ngIf="!isEditEnabled" mat-raised-button class="add_button" [disabled]="!toDoForm">Add Task</button>
                     <button style="color: transparent; border: none; background-color: transparent;" (click)="test()">TEST</button>
                 </form>
             </mat-card>
@@ -47,7 +55,7 @@
                               [cdkDropListData]="toDo"
                               class="example-list"
                               (cdkDropListDropped)="onDrop($event, 'todo')">
-                                <div class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.text}} <br> {{item.deadline}}
+                                <div (click)="openTaskInfoModal(content)" class="example-box" *ngFor="let item of toDo; let i = index" cdkDrag [cdkDragData]="item">{{item.title}}<br>{{item.deadline}}
                                     <div class="box">
                                         <button mat-icon-button color="primary" (click)="openEditModal(editTaskModal)">
                                             <mat-icon>edit</mat-icon>
@@ -98,6 +106,31 @@
 
                                     </ng-template>
 
+                                    <ng-template #content let-modal>
+                                        <div class="modal-header">
+                                            <h2 class="modal-title">{{item.title}}</h2>
+                                            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{item.text}}&hellip;</p>
+                                            <mat-divider></mat-divider>
+                                                <div class="image-list" style="padding-top: 15px; display: flex; align-items: center;">
+                                                    <h4 style="margin-right: 10px;">Images:</h4>
+                                                    <div style="flex: 1;">
+                                                        <img *ngFor="let image of item.listOfImage" [src]="'data:image/png;base64,' + image" style="max-width: 100%; max-height: 100px; margin-right: 10px;">
+                                                    </div>
+                                                </div>
+                                            <mat-divider></mat-divider>
+                                            <div class="deadline-wrapper" style="padding-top: 15px; display: flex; align-items: center;">
+                                                <h4 style="margin-right: 10px;">Deadline:</h4>
+                                                <p style="flex: 1;">{{item.deadline}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" (click)="openEditModal(editTaskModal)">Edit Task</button>
+                                            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                                        </div>
+                                    </ng-template>
                                 </div>
                             </div>
                         </div>

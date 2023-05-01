@@ -1,11 +1,10 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ITask } from '../model/task';
 import { TaskService } from '../service/task.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-to-do',
@@ -14,7 +13,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class ToDoComponent implements OnInit {
 
-  toDoForm !: FormGroup;
+  toDoForm!: FormGroup;
   tasks: ITask[] = [];
 
   toDo: ITask[] = [];
@@ -22,6 +21,10 @@ export class ToDoComponent implements OnInit {
   done: ITask[] = [];
   updateIndex!: any;
   isEditEnabled: boolean = false; 
+
+  selectedFiles: File[] = [];
+  showSelectedFiles = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -38,14 +41,44 @@ export class ToDoComponent implements OnInit {
     this.modalService.open(content);
   };
 
+  onFileSelected(event: any) {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      for (let i = 0; i < files.length; i++) {
+        this.selectedFiles.push(files[i]); 
+      } 
+    }
+  }
+
+  removeSelectedFile(file: File) {
+    this.selectedFiles = this.selectedFiles.filter(selectedFile => selectedFile !== file);
+  }
+  
+  
   addTask() {
-    console.log(this.toDoForm.value);
-    this.taskService.createTask(this.toDoForm.value.title, this.toDoForm.value.item, this.toDoForm.value.deadline)
+    const formData = new FormData();
+    formData.append('title', this.toDoForm.value.title);
+    formData.append('text', this.toDoForm.value.text);
+    formData.append('deadline', this.toDoForm.value.deadline);
+    
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      formData.append('listOfImage', this.selectedFiles[i]);
+    }
+
+    console.log(formData.get('title'), formData.get('text'), formData.get('deadline'), formData.get('listOfImage'));
+    console.log(formData.get('listOfImage'), 'listOfImage before DB');
+    
+    this.taskService.createTask(formData)
       .subscribe((response: any) => {
-        console.log(response);
         this.getAllUserTasks();
         this.toDoForm.reset();
+        this.selectedFiles = [];
+        this.showSelectedFiles = false;
       });
+    }
+
+  openTaskInfoModal(content: any) {
+    this.modalService.open(content, { size: 'xl' });
   }
   
   test() {
@@ -71,16 +104,19 @@ export class ToDoComponent implements OnInit {
     });
   }
 
+  testForm(){
+    console.log(this.toDoForm.controls);
+  }
+
   public getAllUserTasks(): void { 
     this.taskService.getAllUserTasks().subscribe( 
       (response: ITask[]) => {
-        // Initialize arrays
+
         this.tasks = response;
         this.toDo = [];
         this.inprogress = [];
         this.done = [];
   
-        // Sort tasks into arrays based on state
         this.tasks.forEach(task => {
           if (task.state === 'toDo' || task.state === 'todo') {
             this.toDo.push(task);
@@ -90,6 +126,8 @@ export class ToDoComponent implements OnInit {
             this.done.push(task);
           }
         });
+
+        console.log(this.tasks);
   
         this.toDoForm.reset();
       },
@@ -97,8 +135,7 @@ export class ToDoComponent implements OnInit {
         alert(error.message);
       }
     );
-  }
-  
+  }  
 
   editTask(taskModel: ITask){ 
     let cancelBtn = document.getElementById('edit_task_cancel');
@@ -112,7 +149,7 @@ export class ToDoComponent implements OnInit {
     )
   }
 
-  deleteTask(taskId: number){ //function for deleting the listing by using the listingId
+  deleteTask(taskId: number){
     
     this.taskService.deleteTask(taskId).subscribe(
       (response: void) => {
@@ -150,24 +187,21 @@ export class ToDoComponent implements OnInit {
         }
       );
   
-      // Remove task from previous array
       previousContainer.data.splice(previousIndex, 1);
   
-      // Push task to new array
       currentContainer.data.splice(currentIndex, 0, droppedTask);
     } else {
-      // Move task within the same array
       moveItemInArray(currentContainer.data, previousIndex, currentIndex);
     }
   }
-  
 
   ngOnInit(): void {
     this.getAllUserTasks();
 
     this.toDoForm = this.fb.group({
-      item : ['', Validators.required],
-      deadline: ['',]
+      title: ['', Validators.required],
+      text : ['', Validators.required],
+      deadline: ['',],
     });
   }
 }

@@ -4,4 +4,7 @@ export interface ITask {
     text: string,  
     state: string,
     title: string,
+    // images: Array<File>;
+    listOfImage: Array<string>;
+    // images: number[];
 }
